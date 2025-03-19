@@ -112,11 +112,13 @@ const styles = {
     paddingRight: '40px',
   },
   animatedBox: {
-    display: 'inline-block',
-    backgroundColor: 'rgba(59, 130, 246, 0.1)',
-    borderRadius: '30px',
-    padding: '8px 16px',
-    marginBottom: '24px'
+    display: "inline-block",
+      background: "linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%)",
+      borderRadius: "30px",
+      padding: "10px 20px",
+      marginBottom: "24px",
+      border: "1px solid rgba(56, 189, 248, 0.2)",
+      backdropFilter: "blur(10px)",
   },
   tagline: {
     color: '#3b82f6',
@@ -222,88 +224,162 @@ const styles = {
     fontSize: '16px'
   },
   featuresSection: {
-    padding: '80px 5%',
-    backgroundColor: 'white',
+    padding: '20px 5%',
+    backgroundColor: '#f8fafc',
+    borderRadius: '16px',
+    margin: '0 auto 80px',
     maxWidth: '1400px',
-    margin: '0 auto'
   },
+  
   featuresSectionHeader: {
     textAlign: 'center',
-    maxWidth: '700px',
-    margin: '0 auto 60px auto'
+    marginBottom: '60px',
   },
+  
   sectionTitle: {
-    fontSize: '36px',
+    fontSize: '2.5rem',
     fontWeight: '700',
-    marginBottom: '16px'
+    color: '#1e293b',
+    marginBottom: '16px',
+    position: 'relative',
+    display: 'inline-block',
   },
+  
   sectionSubtitle: {
-    fontSize: '18px',
+    fontSize: '1.25rem',
     color: '#64748b',
-    lineHeight: '1.6'
+    maxWidth: '600px',
+    margin: '0 auto',
+    lineHeight: '1.6',
   },
+  
   featuresGrid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-    gap: '32px'
+    gap: '40px',
   },
+  
   feature: {
-    padding: '32px 24px',
+    display: 'flex',
+    flexDirection: 'column',
+    padding: '32px',
+    backgroundColor: 'white',
     borderRadius: '12px',
-    backgroundColor: '#f8fafc',
+    boxShadow: '0 10px 25px rgba(0, 0, 0, 0.03)',
     transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-    cursor: 'default'
+    ':hover': {
+      transform: 'translateY(-5px)',
+      boxShadow: '0 15px 30px rgba(0, 0, 0, 0.05)',
+    },
   },
-  featureIcon: {
-    fontSize: '32px',
+  
+  featureIconContainer: {
+    width: '64px',
+    height: '64px',
+    borderRadius: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#eef2ff',
     marginBottom: '24px',
-    display: 'inline-block',
-    padding: '12px',
-    borderRadius: '12px',
-    backgroundColor: 'rgba(59, 130, 246, 0.1)'
   },
+  
+  featureIcon: {
+    fontSize: '28px',
+  },
+  
+  featureContent: {
+    flex: '1',
+  },
+  
   featureTitle: {
-    fontSize: '20px',
+    fontSize: '1.25rem',
     fontWeight: '600',
-    marginBottom: '16px'
+    color: '#1e293b',
+    marginBottom: '12px',
   },
+  
   featureDescription: {
-    fontSize: '16px',
+    fontSize: '1rem',
+    color: '#64748b',
     lineHeight: '1.6',
-    color: '#64748b'
   },
+  
+  // CTA Section
   ctaSection: {
-    padding: '100px 5%',
-    backgroundImage: 'linear-gradient(135deg, #3b82f6, #2563eb)',
-    color: 'white',
-    textAlign: 'center'
+    padding: '80px 5%',
+    background: '#0f172a',
+    borderRadius: '16px',
+    margin: '0 auto 80px',
+    maxWidth: '1250px',
   },
+  
   ctaContent: {
-    maxWidth: '800px',
-    margin: '0 auto'
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: '40px',
+    flexWrap: 'wrap',
+    maxWidth: '1200px',
+    margin: '0 auto',
+    padding: '0 20px',
+    '@media (max-width: 768px)': {
+      flexDirection: 'column',
+      textAlign: 'center',
+    },
   },
+  
+  ctaTextContent: {
+    flex: '1',
+    minWidth: '300px',
+  },
+  
   ctaTitle: {
-    fontSize: '36px',
+    fontSize: '2.25rem',
     fontWeight: '700',
-    marginBottom: '20px',
-    lineHeight: '1.3'
+    color: 'white',
+    marginBottom: '16px',
+    lineHeight: '1.2',
   },
+  
   ctaDescription: {
-    fontSize: '18px',
-    marginBottom: '32px',
-    opacity: '0.9'
+    fontSize: '1.1rem',
+    color: 'rgba(255, 255, 255, 0.9)',
+    maxWidth: '600px',
+    lineHeight: '1.6',
   },
+  
   ctaButton: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: 'white',
     color: '#2563eb',
     border: 'none',
-    padding: '16px 36px',
-    fontSize: '18px',
-    fontWeight: '600',
     borderRadius: '8px',
+    padding: '16px 32px',
+    fontSize: '1.1rem',
+    fontWeight: '600',
     cursor: 'pointer',
-    transition: 'all 0.2s ease',
-    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.15)'
+    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+    ':hover': {
+      transform: 'translateY(-2px)',
+      boxShadow: '0 15px 20px -3px rgba(0, 0, 0, 0.15)',
+    },
+  },
+  
+  ctaButtonText: {
+    marginRight: '10px',
+  },
+  
+  ctaButtonIcon: {
+    fontSize: '1.2rem',
+    transition: 'transform 0.3s ease',
+    ':hover': {
+      transform: 'translateX(4px)',
+    },
   }
 };
 
