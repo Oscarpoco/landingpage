@@ -5,7 +5,7 @@ function Services() {
     const serviceItems = [
       {
         id: 1,
-        icon: <Monitor size={35} />,
+        icon: <Monitor size={24} />,
         title: "Computer Workstations",
         description:
           "High-performance computers equipped with the latest software for browsing, work, and entertainment.",
@@ -13,7 +13,7 @@ function Services() {
       },
       {
         id: 2,
-        icon: <Gamepad size={35} />,
+        icon: <Gamepad size={24} />,
         title: "Gaming Zone",
         description: "Top-tier gaming stations with the latest games and accessories for the ultimate gaming experience.",
         details: [
@@ -25,28 +25,28 @@ function Services() {
       },
       {
         id: 3,
-        icon: <Printer size={35} />,
+        icon: <Printer size={24} />,
         title: "Printing Services",
         description: "High-quality printing, scanning, and copying services for all your document needs.",
         details: ["Color and B&W printing", "Document scanning", "Photocopying", "Large format printing"],
       },
       {
         id: 4,
-        icon: <Coffee size={35} />,
+        icon: <Coffee size={24} />,
         title: "Cafe Area",
         description: "Refreshments and snacks to keep you energized during your work or gaming sessions.",
         details: ["Hot and cold beverages", "Pastries and snacks", "Sandwiches and light meals", "Free water refills"],
       },
       {
         id: 5,
-        icon: <Users size={35} />,
+        icon: <Users size={24} />,
         title: "Meeting Rooms",
         description: "Private meeting spaces for group work, interviews, or small gatherings with all necessary tech.",
         details: ["Video conferencing equipment", "Projectors and screens", "Whiteboards", "Catering options"],
       },
       {
         id: 6,
-        icon: <Wifi size={35} />,
+        icon: <Wifi size={24} />,
         title: "High-Speed WiFi",
         description: "Blazing fast internet connection for all your browsing, streaming, and download needs.",
         details: ["Fiber optic connection", "1 Gbps download/upload speeds", "Secure network", "Technical support"],
@@ -308,8 +308,8 @@ function Services() {
         transform: "translateY(0)", 
       },
       serviceIconWrapper: {
-        width: "80px",
-        height: "80px",
+        width: "50px",
+        height: "50px",
         borderRadius: "20px",
         background: "linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%)",
         display: "flex",
@@ -322,7 +322,6 @@ function Services() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        fontSize: "24px",
       },
       serviceTitle: {
         fontSize: "24px",
@@ -366,6 +365,7 @@ function Services() {
         fontWeight: "600",
         textAlign: "left",
         marginTop: "auto",
+        marginBottom: "30px",
         display: "flex",
         alignItems: "center",
         gap: "8px",
