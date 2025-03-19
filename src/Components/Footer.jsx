@@ -6,7 +6,7 @@ function Footer() {
     <div style={styles.footer}>
       <div style={styles.footerContent}>
         <div style={styles.footerSection}>
-          <h3 style={styles.footerTitle}>CyberHub</h3>
+          <h3 style={styles.footerTitle}>Gamefuxion</h3>
           <p style={styles.footerText}>
             Your premium internet cafe experience with high-speed internet, gaming stations, and more.
           </p>
