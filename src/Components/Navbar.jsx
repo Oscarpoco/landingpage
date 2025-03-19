@@ -36,7 +36,7 @@ function Navbar({ setActiveSection, activeSection }) {
       <div style={styles.navbarContainer}>
         <div style={styles.logoContainer}>
           <h1 style={styles.logoText}>
-            <span style={styles.logoHighlight}>Cyber</span>Hub
+            <span style={styles.logoHighlight}>Game</span>fuxion
           </h1>
         </div>
         
