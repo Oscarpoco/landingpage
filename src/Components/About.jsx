@@ -89,7 +89,7 @@ function About() {
                             <h3 style={styles.teamMemberName}>Maria Rodriguez</h3>
                             <p style={styles.teamMemberRole}>Operations Director</p>
                         </div>
-                        <div style={styles.teamMember}>
+                        {/* <div style={styles.teamMember}>
                             <div style={styles.teamMemberImage}></div>
                             <h3 style={styles.teamMemberName}>David Thompson</h3>
                             <p style={styles.teamMemberRole}>Head Pest Specialist</p>
@@ -98,7 +98,7 @@ function About() {
                             <div style={styles.teamMemberImage}></div>
                             <h3 style={styles.teamMemberName}>Lisa Chen</h3>
                             <p style={styles.teamMemberRole}>Cleaning Services Manager</p>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
@@ -284,13 +284,16 @@ const styles = {
         marginRight: "auto",
     },
     teamGrid: {
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+        display: "flex",
         gap: "30px",
+        justifyContent: 'center',
+        width: '100%',
+        flexWrap: 'wrap'
     },
     teamMember: {
         textAlign: "center",
         transition: "transform 0.3s ease",
+        width: '350px'
     },
     teamMemberImage: {
         width: "100%",
