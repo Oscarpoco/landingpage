@@ -57,7 +57,7 @@ function Contact() {
             </div>
             <div style={styles.infoContent}>
               <h3 style={styles.infoTitle}>Location</h3>
-              <p style={styles.infoText}>123 Tech Street, Digital City, DC 10101</p>
+              <p style={styles.infoText}>4932 Masekwas Street, Olivenhoutbosch, Centurion 0157</p>
             </div>
           </div>
 
@@ -67,7 +67,8 @@ function Contact() {
             </div>
             <div style={styles.infoContent}>
               <h3 style={styles.infoTitle}>Phone</h3>
-              <p style={styles.infoText}>(123) 456-7890</p>
+              <p style={styles.infoText}>(082) 341-4911</p>
+              <p style={styles.infoText}>(076) 833-8082</p>
             </div>
           </div>
 
@@ -87,7 +88,7 @@ function Contact() {
             </div>
             <div style={styles.infoContent}>
               <h3 style={styles.infoTitle}>Hours</h3>
-              <p style={styles.infoText}>Open 24/7</p>
+              <p style={styles.infoText}>Open 24/7 Emergency Service</p>
             </div>
           </div>
 

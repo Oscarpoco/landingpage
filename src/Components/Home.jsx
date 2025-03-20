@@ -1,5 +1,5 @@
 import React from 'react';
-import { Monitor, Gamepad2, Wifi, Coffee } from 'lucide-react';
+import { Sparkles, Bug, ShieldCheck } from 'lucide-react';
 
 function Home() {
     return (
@@ -7,84 +7,84 @@ function Home() {
             <div style={styles.heroSection}>
                 <div style={styles.heroContent}>
                     <div style={styles.animatedBox}>
-                        <span style={styles.tagline}>Premium Tech Space</span>
+                        <span style={styles.tagline}>Premium Pest Solutions</span>
                     </div>
-                    <h1 style={styles.title}>Experience Next-Gen <span style={styles.highlight}>Digital</span> Environment</h1>
+                    <h1 style={styles.title}>Pest Control <span style={styles.highlight}>And</span> Cleaning Services</h1>
                     <p style={styles.description}>
-                        High-performance workstations, lightning-fast internet, and cutting-edge gaming setups in a modern, comfortable space designed for productivity and entertainment.
+                        Professional pest elimination, thorough sanitization, and comprehensive cleaning services in a safe, effective approach designed for residential and commercial properties.
                     </p>
                     <div style={styles.buttonGroup}>
-                        <button style={styles.primaryButton}>Book a Station</button>
+                        <button style={styles.primaryButton}>Schedule Service</button>
                         <button style={styles.secondaryButton}>View Plans</button>
                     </div>
                     <div style={styles.stats}>
                         <div style={styles.statItem}>
-                            <span style={styles.statNumber}>50+</span>
-                            <span style={styles.statLabel}>Premium Stations</span>
+                            <span style={styles.statNumber}>15+</span>
+                            <span style={styles.statLabel}>Years Experience</span>
                         </div>
                         <div style={styles.divider}></div>
                         <div style={styles.statItem}>
-                            <span style={styles.statNumber}>1 Gbps</span>
-                            <span style={styles.statLabel}>Internet Speed</span>
+                            <span style={styles.statNumber}>100%</span>
+                            <span style={styles.statLabel}>Satisfaction Guarantee</span>
                         </div>
                         <div style={styles.divider}></div>
                         <div style={styles.statItem}>
                             <span style={styles.statNumber}>24/7</span>
-                            <span style={styles.statLabel}>Open Hours</span>
+                            <span style={styles.statLabel}>Emergency Service</span>
                         </div>
                     </div>
                 </div>
                 <div style={styles.heroImageContainer}>
                     <div style={styles.heroImage}></div>
                     <div style={styles.imageBadge}>
-                        <span style={styles.badgeText}>Unlock Your Digital Experience</span>
+                        <span style={styles.badgeText}>Pest-Free Living Guaranteed</span>
                     </div>
                 </div>
             </div>
 
             <div style={styles.featuresSection}>
                 <div style={styles.featuresSectionHeader}>
-                    <h2 style={styles.sectionTitle}>Why Choose CyberHub?</h2>
+                    <h2 style={styles.sectionTitle}>Why Choose PestPro Solutions?</h2>
                     <p style={styles.sectionSubtitle}>
-                        Experience the perfect blend of technology, comfort, and service
+                        Experience the perfect blend of expertise, safety, and exceptional service
                     </p>
                 </div>
 
                 <div style={styles.featuresGrid}>
                     <div style={styles.feature}>
                         <div style={styles.serviceIconWrapper}>
-                            <div style={styles.serviceIcon}><Monitor size={24} /></div>
+                            <div style={styles.serviceIcon}><Bug size={24} /></div>
                         </div>
-                        <h3 style={styles.featureTitle}>High-Performance Workstations</h3>
+                        <h3 style={styles.featureTitle}>Complete Pest Elimination</h3>
                         <p style={styles.featureDescription}>
-                            State-of-the-art computers with the latest hardware and software for all your needs
+                            Cutting-edge treatments and techniques to eliminate all types of pests from your property
                         </p>
                     </div>
                     <div style={styles.feature}>
                         <div style={styles.serviceIconWrapper}>
-                            <div style={styles.serviceIcon}><Gamepad2 size={24} /></div>
+                            <div style={styles.serviceIcon}><Sparkles size={24} /></div>
                         </div>
-                        <h3 style={styles.featureTitle}>Premium Gaming Experience</h3>
+                        <h3 style={styles.featureTitle}>Deep Cleaning Services</h3>
                         <p style={styles.featureDescription}>
-                            Top-tier gaming rigs with the latest titles and peripherals for competitive gaming
+                            Thorough cleaning and sanitization for homes and businesses with eco-friendly products
                         </p>
                     </div>
                     <div style={styles.feature}>
                         <div style={styles.serviceIconWrapper}>
-                            <div style={styles.serviceIcon}><Wifi size={24} /></div>
+                            <div style={styles.serviceIcon}><ShieldCheck size={24} /></div>
                         </div>
-                        <h3 style={styles.featureTitle}>Ultra-Fast Connectivity</h3>
+                        <h3 style={styles.featureTitle}>Preventative Protection</h3>
                         <p style={styles.featureDescription}>
-                            Fiber optic internet with 1 Gbps speeds for smooth streaming and downloads
+                            Ongoing maintenance plans to ensure long-term protection against future infestations
                         </p>
                     </div>
                     <div style={styles.feature}>
                         <div style={styles.serviceIconWrapper}>
-                            <div style={styles.serviceIcon}><Coffee size={24} /></div>
+                            <div style={styles.serviceIcon}><ShieldCheck size={24} /></div>
                         </div>
-                        <h3 style={styles.featureTitle}>Refreshment Zone</h3>
+                        <h3 style={styles.featureTitle}>Certified Technicians</h3>
                         <p style={styles.featureDescription}>
-                            Complimentary beverages and snacks to keep you fueled during intense sessions
+                            Professionally trained and licensed specialists with years of industry experience
                         </p>
                     </div>
                 </div>
@@ -92,9 +92,9 @@ function Home() {
 
             <div style={styles.ctaSection}>
                 <div style={styles.ctaContent}>
-                    <h2 style={styles.ctaTitle}>Ready to elevate your digital experience?</h2>
-                    <p style={styles.ctaDescription}>Join thousands of satisfied customers who've made CyberHub their tech destination of choice.</p>
-                    <button style={styles.ctaButton}>Get Started Today</button>
+                    <h2 style={styles.ctaTitle}>Ready to enjoy a pest-free, clean environment?</h2>
+                    <p style={styles.ctaDescription}>Join thousands of satisfied customers who've made PestPro Solutions their trusted pest control and cleaning partner.</p>
+                    <button style={styles.ctaButton}>Book Your Service Today</button>
                 </div>
             </div>
         </div>
@@ -212,7 +212,7 @@ const styles = {
     heroImage: {
         width: '100%',
         height: '500px',
-        backgroundImage: 'linear-gradient(rgba(30, 41, 59, 0.4), rgba(30, 41, 59, 0.4)), url("https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
+        backgroundImage: 'linear-gradient(rgba(30, 41, 59, 0.4), rgba(30, 41, 59, 0.4)), url("https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         borderRadius: '16px',
@@ -278,14 +278,14 @@ const styles = {
         justifyContent: "center",
         marginBottom: "24px",
         border: "1px solid rgba(56, 189, 248, 0.2)",
-      },
+    },
 
     serviceIcon: {
-    
+
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-      },
+    },
 
     feature: {
         display: 'flex',

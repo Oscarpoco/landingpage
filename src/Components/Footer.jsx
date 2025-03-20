@@ -1,14 +1,14 @@
 import React from 'react';
-import { Home, Info, Settings, Phone, Mail, Clock, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
+import { Home, Info,  Trash2, Phone, Mail, Clock, MapPin, Facebook, Twitter, Instagram, Youtube, Shield } from 'lucide-react';
 
 function Footer() {
   return (
     <div style={styles.footer}>
       <div style={styles.footerContent}>
         <div style={styles.footerSection}>
-          <h3 style={styles.footerTitle}>Gamefuxion</h3>
+          <h3 style={styles.footerTitle}>PestCare Professionals</h3>
           <p style={styles.footerText}>
-            Your premium internet cafe experience with high-speed internet, gaming stations, and more.
+            Your trusted partner for comprehensive pest control and cleaning services. We eliminate pests and restore cleanliness to your space.
           </p>
         </div>
 
@@ -26,8 +26,13 @@ function Footer() {
               </a>
             </li>
             <li style={styles.footerLink}>
-              <a href="/services" style={styles.footerAnchor}>
-                <Settings size={16} style={styles.icon} /> Services
+              <a href="/pest-control" style={styles.footerAnchor}>
+                <Shield size={16} style={styles.icon} /> Pest Control
+              </a>
+            </li>
+            <li style={styles.footerLink}>
+              <a href="/cleaning" style={styles.footerAnchor}>
+                <Trash2 size={16} style={styles.icon} /> Cleaning Services
               </a>
             </li>
             <li style={styles.footerLink}>
@@ -41,30 +46,39 @@ function Footer() {
         <div style={styles.footerSection}>
           <h3 style={styles.footerTitle}>Working Hours</h3>
           <p style={styles.footerText}>
-            <Clock size={16} style={styles.icon} /> Monday - Sunday
+            <Clock size={16} style={styles.icon} /> Monday - Friday
           </p>
           <p style={styles.footerText}>
-            Open 24 Hours
+            8:00 AM - 6:00 PM
+          </p>
+          <p style={styles.footerText}>
+            <Clock size={16} style={styles.icon} /> Saturday
+          </p>
+          <p style={styles.footerText}>
+            9:00 AM - 4:00 PM
+          </p>
+          <p style={styles.footerText}>
+            24/7 Emergency Services Available
           </p>
         </div>
 
         <div style={styles.footerSection}>
           <h3 style={styles.footerTitle}>Contact</h3>
           <p style={styles.footerText}>
-            123 Tech Street, Digital City
+            <MapPin size={16} style={styles.icon} /> 4932 Masekwas Street, Olivenhoutbosch, Centurion 0157
           </p>
           <p style={styles.footerText}>
-            <Phone size={16} style={styles.icon} /> Phone: (123) 456-7890
+            <Phone size={16} style={styles.icon} /> Phone: (082) 341-4911 
           </p>
           <p style={styles.footerText}>
-            <Mail size={16} style={styles.icon} /> Email: info@cyberhub.com
+            <Mail size={16} style={styles.icon} /> Email: info@pestawaypro.com
           </p>
         </div>
       </div>
 
       <div style={styles.footerBottom}>
         <p style={styles.copyright}>
-          © {new Date().getFullYear()} CyberHub Internet Cafe. All rights reserved.
+          © {new Date().getFullYear()} PestCare Professionals. All rights reserved.
         </p>
         <div style={styles.socialLinks}>
           <a href="https://facebook.com" style={styles.socialLink}>
@@ -95,7 +109,7 @@ const styles = {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    maxWidth: '1200px',
+    maxWidth: '1400px',
     margin: '0 auto',
     marginBottom: '40px'
   },
