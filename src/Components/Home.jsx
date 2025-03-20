@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Bug, ShieldCheck } from 'lucide-react';
+import { Sparkles, Bug, ShieldCheck, Info } from 'lucide-react';
 
 function Home() {
     return (
@@ -80,7 +80,7 @@ function Home() {
                     </div>
                     <div style={styles.feature}>
                         <div style={styles.serviceIconWrapper}>
-                            <div style={styles.serviceIcon}><ShieldCheck size={24} /></div>
+                            <div style={styles.serviceIcon}><Info size={24} /></div>
                         </div>
                         <h3 style={styles.featureTitle}>Certified Technicians</h3>
                         <p style={styles.featureDescription}>

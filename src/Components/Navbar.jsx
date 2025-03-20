@@ -154,7 +154,7 @@ const styles = {
   logoText: {
     margin: 0,
     fontSize: '24px',
-    fontWeight: '700',
+    fontWeight: '900',
     letterSpacing: '-0.5px'
   },
   logoHighlight: {
