@@ -35,7 +35,7 @@ function Services() {
         icon: <Moon size={24} />,
         title: "Fumigation Services",
         description: "Professional fumigation treatments for comprehensive pest elimination in all property types.",
-        details: ["Residential fumigation", "Commercial fumigation", "Weeds control", "Safe chemical application"],
+        details: ["Residential fumigation", "Commercial fumigation", "Weeds control", "Safe chemical application", "Garden and Landscaping"],
       },
       {
         id: 5,

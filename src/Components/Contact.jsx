@@ -416,8 +416,8 @@ const styles = {
     backgroundColor: "white",
     borderRadius: "24px",
     padding: "40px",
-    boxShadow: "0 10px 40px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.05)",
-    border: "1px solid rgba(226, 232, 240, 0.8)",
+    // boxShadow: "0 10px 40px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.05)",
+    border: "1px solid rgba(226, 232, 240, 0.5)",
   },
   form: {
     width: "100%",

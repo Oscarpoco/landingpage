@@ -209,9 +209,8 @@ const styles = {
         backgroundColor: "#e2e8f0",
         borderRadius: "16px",
         backgroundImage:
-            'url("https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")',
+            'url("https://images.unsplash.com/photo-1563453392212-326f5e854473?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
         backgroundSize: "cover",
-        backgroundPosition: "center",
         boxShadow: "0 10px 25px rgba(0, 0, 0, 0.1)",
     },
     valuesSection: {
