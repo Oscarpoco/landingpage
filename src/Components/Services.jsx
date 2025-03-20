@@ -1,55 +1,55 @@
 import React from "react"
-import { Monitor, Gamepad, Printer, Coffee, Users, Wifi } from 'lucide-react';
+import { Bug, Rat, Moon, Microscope, Droplets, Sparkles, Building, Brush, Shield } from 'lucide-react';
 
 function Services() {
     const serviceItems = [
       {
         id: 1,
-        icon: <Monitor size={24} />,
-        title: "Computer Workstations",
+        icon: <Bug size={24} />,
+        title: "Insect Control",
         description:
-          "High-performance computers equipped with the latest software for browsing, work, and entertainment.",
-        details: ["Intel Core i7/i9 processors", "32GB RAM", "NVIDIA RTX graphics", "Dual monitors"],
+          "Comprehensive solutions for all types of insect infestations, from cockroaches to flying insects.",
+        details: ["Cockroaches", "Flying insects control", "Bedbugs", "Fleas", "Ticks"],
       },
       {
         id: 2,
-        icon: <Gamepad size={24} />,
-        title: "Gaming Zone",
-        description: "Top-tier gaming stations with the latest games and accessories for the ultimate gaming experience.",
+        icon: <Rat size={24} />,
+        title: "Rodent Management",
+        description: "Effective elimination and prevention strategies for mice, rats, and other rodents.",
         details: [
-          "Latest PC games library",
-          "Gaming consoles (PS5, Xbox Series X)",
-          "VR gaming equipment",
-          "Gaming tournaments",
+          "Mice control",
+          "Rat elimination",
+          "Entry point sealing",
+          "Preventative measures",
         ],
       },
       {
         id: 3,
-        icon: <Printer size={24} />,
-        title: "Printing Services",
-        description: "High-quality printing, scanning, and copying services for all your document needs.",
-        details: ["Color and B&W printing", "Document scanning", "Photocopying", "Large format printing"],
+        icon: <Microscope size={24} />,
+        title: "Termite Treatment",
+        description: "Specialized termite detection and elimination services to protect your property.",
+        details: ["Harvest Termites", "Sub Terranean Termites", "Pre-construction poisoning", "Regular inspections"],
       },
       {
         id: 4,
-        icon: <Coffee size={24} />,
-        title: "Cafe Area",
-        description: "Refreshments and snacks to keep you energized during your work or gaming sessions.",
-        details: ["Hot and cold beverages", "Pastries and snacks", "Sandwiches and light meals", "Free water refills"],
+        icon: <Moon size={24} />,
+        title: "Fumigation Services",
+        description: "Professional fumigation treatments for comprehensive pest elimination in all property types.",
+        details: ["Residential fumigation", "Commercial fumigation", "Weeds control", "Safe chemical application"],
       },
       {
         id: 5,
-        icon: <Users size={24} />,
-        title: "Meeting Rooms",
-        description: "Private meeting spaces for group work, interviews, or small gatherings with all necessary tech.",
-        details: ["Video conferencing equipment", "Projectors and screens", "Whiteboards", "Catering options"],
+        icon: <Sparkles size={24} />,
+        title: "Carpet & Upholstery Cleaning",
+        description: "Deep cleaning services for carpets, rugs, and furniture to remove stains and allergens.",
+        details: ["Dry & wet carpet cleaning", "Couch cleaning", "Stain removal", "Allergen reduction"],
       },
       {
         id: 6,
-        icon: <Wifi size={24} />,
-        title: "High-Speed WiFi",
-        description: "Blazing fast internet connection for all your browsing, streaming, and download needs.",
-        details: ["Fiber optic connection", "1 Gbps download/upload speeds", "Secure network", "Technical support"],
+        icon: <Building size={24} />,
+        title: "Commercial Cleaning",
+        description: "Comprehensive cleaning solutions for offices, warehouses, and commercial properties.",
+        details: ["Window offices", "Warehouse cleaning", "Contract cleaning", "Tile floor maintenance"],
       },
     ]
   
@@ -59,11 +59,11 @@ function Services() {
   
         <div style={styles.headerSection}>
           <div style={styles.animatedBox}>
-            <span style={styles.tagline}>Premium Services</span>
+            <span style={styles.tagline}>Professional Services</span>
           </div>
-          <h1 style={styles.title}>Elevate Your Digital Experience</h1>
+          <h1 style={styles.title}>Complete Pest Control & Cleaning Solutions</h1>
           <p style={styles.description}>
-            Discover our comprehensive range of cutting-edge technology services designed to meet your every need
+            Discover our comprehensive range of pest elimination and cleaning services designed to keep your environment safe and spotless
           </p>
         </div>
   
@@ -90,7 +90,7 @@ function Services() {
                 ))}
               </ul>
               <button style={styles.learnMoreButton}>
-                <span>Explore</span>
+                <span>Learn More</span>
                 <span style={styles.buttonArrow}>→</span>
               </button>
             </div>
@@ -101,68 +101,68 @@ function Services() {
           <div style={styles.pricingSectionContent}>
             <div style={styles.pricingHeader}>
               <div style={styles.animatedBox}>
-                <span style={styles.tagline}>Flexible Plans</span>
+                <span style={styles.tagline}>Service Plans</span>
               </div>
-              <h2 style={styles.sectionTitle}>Choose Your Perfect Plan</h2>
+              <h2 style={styles.sectionTitle}>Select Your Ideal Service Plan</h2>
               <p style={styles.pricingDescription}>
-                Select the option that best suits your needs, from hourly sessions to premium memberships
+                Choose from our range of service packages designed to meet your specific pest control and cleaning needs
               </p>
             </div>
   
             <div style={styles.pricingGrid}>
               <div style={styles.pricingCard}>
                 <div style={styles.pricingCardInner}>
-                  <h3 style={styles.pricingTitle}>Hourly Access</h3>
-                  <div style={styles.pricingAmount}>$5</div>
-                  <p style={styles.pricingPeriod}>per hour</p>
+                  <h3 style={styles.pricingTitle}>One-Time Service</h3>
+                  <div style={styles.pricingAmount}>$149</div>
+                  <p style={styles.pricingPeriod}>single visit</p>
                   <ul style={styles.pricingFeatures}>
                     <li>
                       <span style={styles.checkmark}>✓</span>
-                      <span>Computer Workstation</span>
+                      <span>Basic Pest Inspection</span>
                     </li>
                     <li>
                       <span style={styles.checkmark}>✓</span>
-                      <span>High-Speed Internet</span>
+                      <span>Target Treatment</span>
                     </li>
                     <li>
                       <span style={styles.checkmark}>✓</span>
-                      <span>Basic Software</span>
+                      <span>30-day Guarantee</span>
                     </li>
                     <li>
                       <span style={styles.checkmark}>✓</span>
-                      <span>Technical Support</span>
+                      <span>Follow-up Report</span>
                     </li>
                   </ul>
-                  <button style={styles.pricingButton}>Get Started</button>
+                  <button style={styles.pricingButton}>Book Now</button>
                 </div>
               </div>
   
               <div style={styles.popularPricingCard}>
                 <div style={styles.popularTag}>Most Popular</div>
                 <div style={styles.pricingCardInner}>
-                  <h3 style={styles.pricingTitle}>Day Pass</h3>
-                  <div style={styles.pricingAmount}>$25</div>
-                  <p style={styles.pricingPeriod}>full day</p>
+                  <h3 style={styles.pricingTitle}>Quarterly Program</h3>
+                  <div style={styles.pricingAmount}>$99</div>
+                  <p style={styles.pricingPeriod}>per month</p>
                   <ul style={styles.pricingFeatures}>
                     <li>
                       <span style={styles.checkmark}>✓</span>
-                      <span>Computer Workstation</span>
+                      <span>Comprehensive Inspection</span>
                     </li>
                     <li>
                       <span style={styles.checkmark}>✓</span>
-                      <span>High-Speed Internet</span>
+                      <span>Quarterly Treatments</span>
                     </li>
                     <li>
                       <span style={styles.checkmark}>✓</span>
-                      <span>All Software</span>
+                      <span>Multiple Pest Coverage</span>
                     </li>
                     <li>
                       <span style={styles.checkmark}>✓</span>
-                      <span>Gaming Access</span>
+                      <span>Between-Visit Guarantees</span>
                     </li>
                     <li>
                       <span style={styles.checkmark}>✓</span>
-                      <span>Free Beverage</span>
+                      <span>Free Emergency Visits</span>
                     </li>
                   </ul>
                   <button style={styles.popularPricingButton}>Get Started</button>
@@ -171,33 +171,33 @@ function Services() {
   
               <div style={styles.pricingCard}>
                 <div style={styles.pricingCardInner}>
-                  <h3 style={styles.pricingTitle}>Membership</h3>
-                  <div style={styles.pricingAmount}>$199</div>
+                  <h3 style={styles.pricingTitle}>Complete Package</h3>
+                  <div style={styles.pricingAmount}>$249</div>
                   <p style={styles.pricingPeriod}>per month</p>
                   <ul style={styles.pricingFeatures}>
                     <li>
                       <span style={styles.checkmark}>✓</span>
-                      <span>Unlimited Access</span>
+                      <span>Full Pest Management</span>
                     </li>
                     <li>
                       <span style={styles.checkmark}>✓</span>
-                      <span>Premium Workstations</span>
+                      <span>Monthly Preventative Visits</span>
                     </li>
                     <li>
                       <span style={styles.checkmark}>✓</span>
-                      <span>Priority Booking</span>
+                      <span>All Pest Types Covered</span>
                     </li>
                     <li>
                       <span style={styles.checkmark}>✓</span>
-                      <span>Gaming Tournaments</span>
+                      <span>Bi-monthly Cleaning Service</span>
                     </li>
                     <li>
                       <span style={styles.checkmark}>✓</span>
-                      <span>Free Printing (100 pages)</span>
+                      <span>24/7 Emergency Response</span>
                     </li>
                     <li>
                       <span style={styles.checkmark}>✓</span>
-                      <span>Discounted Meeting Rooms</span>
+                      <span>Termite Monitoring Included</span>
                     </li>
                   </ul>
                   <button style={styles.pricingButton}>Get Started</button>
@@ -210,13 +210,13 @@ function Services() {
         <div style={styles.ctaSection}>
           <div style={styles.ctaGlow}></div>
           <div style={styles.ctaContent}>
-            <h2 style={styles.ctaTitle}>Ready to Experience the Difference?</h2>
+            <h2 style={styles.ctaTitle}>Ready for a Pest-Free, Clean Environment?</h2>
             <p style={styles.ctaDescription}>
-              Join us today and discover why we're the preferred choice for tech enthusiasts and professionals alike
+              Contact us today and discover why we're the trusted choice for residential and commercial properties
             </p>
             <div style={styles.ctaButtons}>
-              <button style={styles.ctaPrimaryButton}>Book Now</button>
-              <button style={styles.ctaSecondaryButton}>Contact Us</button>
+              <button style={styles.ctaPrimaryButton}>Schedule Service</button>
+              <button style={styles.ctaSecondaryButton}>Get a Quote</button>
             </div>
           </div>
         </div>
