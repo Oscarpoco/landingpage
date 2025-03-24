@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 function Navbar({ setActiveSection, activeSection }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -13,9 +14,20 @@ function Navbar({ setActiveSection, activeSection }) {
       }
     };
     
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
+
+  const isMobile = windowWidth <= 768;
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -35,87 +47,114 @@ function Navbar({ setActiveSection, activeSection }) {
     }}>
       <div style={styles.navbarContainer}>
         <div style={styles.logoContainer}>
+          {/* SVG Leaf Logo - Green top, Blue bottom */}
+          <svg 
+            width="40" 
+            height="40" 
+            viewBox="0 0 40 40" 
+            style={styles.logoSvg}
+          >
+            <path
+              d="M20 2C14 2 6 7 6 18C6 25 12 33 20 38C28 33 34 25 34 18C34 7 26 2 20 2Z"
+              fill="#3b82f6" // Blue bottom
+            />
+            <path
+              d="M20 2C14 2 6 7 6 18C6 25 12 33 20 38L20 20L34 18C34 7 26 2 20 2Z"
+              fill="#10b981" // Green top
+            />
+            <path
+              d="M20 8C18 12 17 16 17 20C17 24 18 28 20 32C22 28 23 24 23 20C23 16 22 12 20 8Z"
+              fill="white"
+              fillOpacity="0.3"
+            />
+          </svg>
           <h1 style={styles.logoText}>
             <span style={styles.logoHighlight}>PEST</span>CARE
           </h1>
         </div>
         
         {/* Mobile Menu Button */}
-        <div style={styles.mobileMenuBtn} onClick={toggleMobileMenu}>
-          <div style={styles.hamburger}>
-            <span style={{...styles.hamburgerLine, ...(mobileMenuOpen ? styles.hamburgerTopActive : {})}}></span>
-            <span style={{...styles.hamburgerLine, ...(mobileMenuOpen ? styles.hamburgerMiddleActive : {})}}></span>
-            <span style={{...styles.hamburgerLine, ...(mobileMenuOpen ? styles.hamburgerBottomActive : {})}}></span>
+        {isMobile && (
+          <div style={styles.mobileMenuBtn} onClick={toggleMobileMenu}>
+            <div style={styles.hamburger}>
+              <span style={{...styles.hamburgerLine, ...(mobileMenuOpen ? styles.hamburgerTopActive : {})}}></span>
+              <span style={{...styles.hamburgerLine, ...(mobileMenuOpen ? styles.hamburgerMiddleActive : {})}}></span>
+              <span style={{...styles.hamburgerLine, ...(mobileMenuOpen ? styles.hamburgerBottomActive : {})}}></span>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Desktop Navigation */}
-        <ul style={styles.desktopNav}>
-          {navItems.map(item => (
-            <li key={item.id} style={styles.navItem}>
-              <a
-                href={`#${item.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setActiveSection(item.id);
-                }}
-                style={{
-                  ...styles.navLink,
-                  ...(activeSection === item.id ? styles.activeLink : {})
-                }}
+        {!isMobile && (
+          <ul style={styles.desktopNav}>
+            {navItems.map(item => (
+              <li key={item.id} style={styles.navItem}>
+                <a
+                  href={`#${item.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setActiveSection(item.id);
+                  }}
+                  style={{
+                    ...styles.navLink,
+                    ...(activeSection === item.id ? styles.activeLink : {})
+                  }}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+            <li style={styles.navItem}>
+              <button
+                onClick={() => setActiveSection('contact')}
+                style={styles.contactBtn}
               >
-                {item.label}
-              </a>
+                Book Now
+              </button>
             </li>
-          ))}
-          <li style={styles.navItem}>
-            <button
-              onClick={() => setActiveSection('contact')}
-              style={styles.contactBtn}
-            >
-              Book Now
-            </button>
-          </li>
-        </ul>
+          </ul>
+        )}
       </div>
 
       {/* Mobile Navigation */}
-      <div style={{
-        ...styles.mobileNav,
-        ...(mobileMenuOpen ? styles.mobileNavOpen : {})
-      }}>
-        <ul style={styles.mobileNavList}>
-          {navItems.map(item => (
-            <li key={item.id} style={styles.mobileNavItem}>
-              <a
-                href={`#${item.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setActiveSection(item.id);
+      {isMobile && (
+        <div style={{
+          ...styles.mobileNav,
+          ...(mobileMenuOpen ? styles.mobileNavOpen : {})
+        }}>
+          <ul style={styles.mobileNavList}>
+            {navItems.map(item => (
+              <li key={item.id} style={styles.mobileNavItem}>
+                <a
+                  href={`#${item.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setActiveSection(item.id);
+                    setMobileMenuOpen(false);
+                  }}
+                  style={{
+                    ...styles.mobileNavLink,
+                    ...(activeSection === item.id ? styles.mobileActiveLink : {})
+                  }}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+            <li style={styles.mobileNavItem}>
+              <button
+                onClick={() => {
+                  setActiveSection('contact');
                   setMobileMenuOpen(false);
                 }}
-                style={{
-                  ...styles.mobileNavLink,
-                  ...(activeSection === item.id ? styles.mobileActiveLink : {})
-                }}
+                style={styles.mobileCta}
               >
-                {item.label}
-              </a>
+                Book Now
+              </button>
             </li>
-          ))}
-          <li style={styles.mobileNavItem}>
-            <button
-              onClick={() => {
-                setActiveSection('contact');
-                setMobileMenuOpen(false);
-              }}
-              style={styles.mobileCta}
-            >
-              Book Now
-            </button>
-          </li>
-        </ul>
-      </div>
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }
@@ -149,7 +188,12 @@ const styles = {
   },
   logoContainer: {
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    gap: '10px'
+  },
+  logoSvg: {
+    display: 'block',
+    transition: 'transform 0.3s ease'
   },
   logoText: {
     margin: 0,
@@ -165,10 +209,7 @@ const styles = {
     alignItems: 'center',
     listStyleType: 'none',
     margin: 0,
-    padding: 0,
-    '@media (max-width: 768px)': {
-      display: 'none'
-    }
+    padding: 0
   },
   navItem: {
     margin: '0 5px'
@@ -198,12 +239,8 @@ const styles = {
     transition: 'all 0.2s ease'
   },
   mobileMenuBtn: {
-    display: 'none',
     cursor: 'pointer',
-    zIndex: 1001,
-    '@media (max-width: 768px)': {
-      display: 'block'
-    }
+    zIndex: 1001
   },
   hamburger: {
     width: '24px',
@@ -230,17 +267,17 @@ const styles = {
   },
   mobileNav: {
     position: 'fixed',
-    top: 0,
+    top: '70px',
     left: 0,
-    width: '100%',
+    width: '70%',
     height: '100vh',
-    backgroundColor: 'white',
+    backgroundColor: 'rgba(255, 255, 255, 0.95)',
     transition: 'all 0.3s ease',
     clipPath: 'circle(0px at calc(100% - 32px) 32px)',
     visibility: 'hidden',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
+    justifyContent: 'start',
     zIndex: 1000
   },
   mobileNavOpen: {
@@ -254,12 +291,12 @@ const styles = {
   },
   mobileNavItem: {
     margin: '20px 0',
-    textAlign: 'center'
+    textAlign: 'start'
   },
   mobileNavLink: {
     color: '#1e293b',
     textDecoration: 'none',
-    fontSize: '24px',
+    fontSize: '18px',
     fontWeight: '600',
     padding: '12px',
     display: 'block'
@@ -271,9 +308,9 @@ const styles = {
     backgroundColor: '#3b82f6',
     color: 'white',
     border: 'none',
-    padding: '16px 28px',
-    borderRadius: '6px',
-    fontSize: '18px',
+    padding: '14px 28px',
+    borderRadius: '12px',
+    fontSize: '16px',
     fontWeight: '600',
     width: '100%',
     cursor: 'pointer',

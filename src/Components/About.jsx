@@ -157,7 +157,7 @@ const styles = {
         fontSize: "16px",
     },
     title: {
-        fontSize: "42px",
+        fontSize: "32px",
         fontWeight: "800",
         marginBottom: "16px",
         color: "#0f172a",

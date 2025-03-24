@@ -357,12 +357,11 @@ function Services() {
       },
       learnMoreButton: {
         color: "#3b82f6",
-        border: "none",
         marginBottom: "30px",
         backgroundColor: "white",
         color: "#333",
         textTransform: "uppercase",
-        border: "2px solid #3b82f6",
+        border: "1px solid #3b82f6",
         padding: "14px 28px",
         borderRadius: "12px",
         fontSize: "18px",
@@ -371,7 +370,7 @@ function Services() {
         transition: "all 0.3s ease",
         width: "100%",
         ":hover": {
-          backgroundColor: "rgba(59, 130, 246, 0.05)",
+          backgroundColor: "rgba(59, 130, 246, 0.7)",
           transform: "translateY(-2px)",
         },
       },
