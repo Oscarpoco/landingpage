@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
-function Navbar({ setActiveSection, activeSection }) {
+function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
+  const location = useLocation();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -30,10 +32,10 @@ function Navbar({ setActiveSection, activeSection }) {
   const isMobile = windowWidth <= 768;
 
   const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'services', label: 'Services' },
-    { id: 'contact', label: 'Contact' }
+    { path: '/', label: 'Home' },
+    { path: '/about', label: 'About' },
+    { path: '/services', label: 'Services' },
+    { path: '/contact', label: 'Contact' }
   ];
 
   const toggleMobileMenu = () => {
@@ -47,23 +49,22 @@ function Navbar({ setActiveSection, activeSection }) {
     }}>
       <div style={styles.navbarContainer}>
         <div style={styles.logoContainer}>
-          {/* Enhanced SVG Leaf Logo with Rotation */}
           <svg 
             width="40" 
             height="40" 
             viewBox="0 0 40 40" 
             style={{
               ...styles.logoSvg,
-              transform: 'rotate(270deg)' // Added rotation
+              transform: 'rotate(270deg)'
             }}
           >
             <path
               d="M20 2C14 2 6 7 6 18C6 25 12 33 20 38C28 33 34 25 34 18C34 7 26 2 20 2Z"
-              fill="#10b981" // Green on top
+              fill="#10b981"
             />
             <path
               d="M20 2C14 2 6 7 6 18C6 25 12 33 20 38L20 20L34 18C34 7 26 2 20 2Z"
-              fill="#3b82f6" // Blue on bottom
+              fill="#3b82f6"
             />
             <path
               d="M20 8C18 12 17 16 17 20C17 24 18 28 20 32C22 28 23 24 23 20C23 16 22 12 20 8Z"
@@ -73,7 +74,7 @@ function Navbar({ setActiveSection, activeSection }) {
           </svg>
           <h1 style={{
             ...styles.logoText,
-            ...(isMobile ? styles.mobileLogoText : {}) // Added mobile text style
+            ...(isMobile ? styles.mobileLogoText : {})
           }}>
             <span style={styles.logoHighlight}>MATHE</span> PROJECTS
           </h1>
@@ -94,29 +95,25 @@ function Navbar({ setActiveSection, activeSection }) {
         {!isMobile && (
           <ul style={styles.desktopNav}>
             {navItems.map(item => (
-              <li key={item.id} style={styles.navItem}>
-                <a
-                  href={`#${item.id}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setActiveSection(item.id);
-                  }}
+              <li key={item.path} style={styles.navItem}>
+                <Link
+                  to={item.path}
                   style={{
                     ...styles.navLink,
-                    ...(activeSection === item.id ? styles.activeLink : {})
+                    ...(location.pathname === item.path ? styles.activeLink : {})
                   }}
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
             <li style={styles.navItem}>
-              <button
-                onClick={() => setActiveSection('contact')}
+              <Link
+                to="/contact"
                 style={styles.contactBtn}
               >
                 Book Now
-              </button>
+              </Link>
             </li>
           </ul>
         )}
@@ -130,33 +127,27 @@ function Navbar({ setActiveSection, activeSection }) {
         }}>
           <ul style={styles.mobileNavList}>
             {navItems.map(item => (
-              <li key={item.id} style={styles.mobileNavItem}>
-                <a
-                  href={`#${item.id}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setActiveSection(item.id);
-                    setMobileMenuOpen(false);
-                  }}
+              <li key={item.path} style={styles.mobileNavItem}>
+                <Link
+                  to={item.path}
+                  onClick={() => setMobileMenuOpen(false)}
                   style={{
                     ...styles.mobileNavLink,
-                    ...(activeSection === item.id ? styles.mobileActiveLink : {})
+                    ...(location.pathname === item.path ? styles.mobileActiveLink : {})
                   }}
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
             <li style={styles.mobileNavItem}>
-              <button
-                onClick={() => {
-                  setActiveSection('contact');
-                  setMobileMenuOpen(false);
-                }}
+              <Link
+                to="/contact"
+                onClick={() => setMobileMenuOpen(false)}
                 style={styles.mobileCta}
               >
                 Book Now
-              </button>
+              </Link>
             </li>
           </ul>
         </div>

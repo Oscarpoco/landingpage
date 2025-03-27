@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Home, Info, Phone, Mail, Clock, MapPin, Facebook, Twitter, Instagram, Youtube, Shield } from 'lucide-react';
 
-function Footer({setActiveSection}) {
+function Footer() {
   const navItems = [
-    { id: 'home', label: 'Home', icon: Home },
-    { id: 'about', label: 'About Us', icon: Info },
-    { id: 'services', label: 'Services', icon: Shield },
-    { id: 'contact', label: 'Contact', icon: Phone }
+    { path: '/', label: 'Home', icon: Home },
+    { path: '/about', label: 'About Us', icon: Info },
+    { path: '/services', label: 'Services', icon: Shield },
+    { path: '/contact', label: 'Contact', icon: Phone }
   ];
 
   return (
@@ -27,13 +28,13 @@ function Footer({setActiveSection}) {
             {navItems.map((item) => {
               const IconComponent = item.icon;
               return (
-                <li key={item.id} style={styles.footerLink}>
-                  <button 
-                    onClick={() => setActiveSection(item.id)}
+                <li key={item.path} style={styles.footerLink}>
+                  <Link 
+                    to={item.path}
                     style={styles.footerAnchor}
                   >
                     <IconComponent size={16} style={styles.icon} /> {item.label}
-                  </button>
+                  </Link>
                 </li>
               );
             })}

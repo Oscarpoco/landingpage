@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Navbar from './Components/Navbar.jsx';
 import Home from './Components/Home.jsx';
 import About from './Components/About.jsx';
@@ -7,31 +9,21 @@ import Contact from './Components/Contact.jsx';
 import Footer from './Components/Footer.jsx';
 
 function App() {
-  const [activeSection, setActiveSection] = useState('home');
-
-  const renderSection = () => {
-    switch(activeSection) {
-      case 'home':
-        return <Home />;
-      case 'about':
-        return <About />;
-      case 'services':
-        return <Services />;
-      case 'contact':
-        return <Contact />;
-      default:
-        return <Home />;
-    }
-  };
-
   return (
-    <div style={styles.app}>
-      <Navbar setActiveSection={setActiveSection} activeSection={activeSection} />
-      <main style={styles.content}>
-        {renderSection()}
-      </main>
-      <Footer setActiveSection={setActiveSection} />
-    </div>
+    <Router>
+      <div style={styles.app}>
+        <Navbar />
+        <main style={styles.content}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
@@ -43,7 +35,6 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     backgroundColor: '#f8fafc',
-    
   },
   content: {
     flex: 1,
