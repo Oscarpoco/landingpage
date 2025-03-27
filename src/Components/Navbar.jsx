@@ -210,7 +210,7 @@ const styles = {
   },
 
   mobileLogoText: {
-    fontSize: '16px', 
+    fontSize: '17px', 
     fontWeight: '900',
     color: '#10b981'
   },

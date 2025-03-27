@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import About from './components/About';
-import Services from './components/Services';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import Navbar from './Components/Navbar.jsx';
+import Home from './Components/Home.jsx';
+import About from './Components/About.jsx';
+import Services from './Components/Services.jsx';
+import Contact from './Components/Contact.jsx';
+import Footer from './Components/Footer.jsx';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');

@@ -37,7 +37,7 @@ function Home() {
         },
         stats: {
             ...styles.stats,
-            flexDirection: isMobile ? 'column' : 'row',
+            flexDirection: isMobile ? 'row' : 'row',
             alignItems: isMobile ? 'center' : 'center',
             gap: isMobile ? '20px' : '16px',
         },
@@ -77,13 +77,13 @@ function Home() {
                     <h1 style={{
                         ...styles.title,
                         fontSize: isMobile ? '34px' : '48px',
-                        textAlign: isMobile ? 'left' : 'left'
+                        textAlign: isMobile ? 'center' : 'left'
                     }}>
                         Pest Control <span style={styles.highlight}>And</span> Cleaning Services
                     </h1>
                     <p style={{
                         ...styles.description,
-                        textAlign: isMobile ? 'left' : 'left',
+                        textAlign: isMobile ? 'center' : 'left',
                         fontSize: isMobile ? '16px' : '18px',
                     }}>
                         Professional pest elimination, thorough sanitization, and comprehensive cleaning services in a safe, effective approach designed for residential and commercial properties.
@@ -123,12 +123,14 @@ function Home() {
                     </div>
                 </div>
                 <div style={responsiveStyles.heroImageContainer}>
-                    <div style={styles.heroImage}></div>
+                    <div style={{...styles.heroImage,  borderRadius: isMobile ? '0px' : '16px',}}></div>
                     <div style={{
                         ...styles.imageBadge,
                         position: isMobile ? 'static' : 'absolute',
                         marginTop: isMobile ? '-30px' : '0',
-                        alignSelf: isMobile ? 'center' : 'auto'
+                        borderRadius: isMobile ? '0px' : '16px',
+                        alignSelf: isMobile ? 'center' : 'auto',
+                        textAlign: isMobile ? 'center' : 'left',
                     }}>
                         <span style={styles.badgeText}>Pest-Free Living Guaranteed</span>
                     </div>
@@ -310,7 +312,7 @@ const styles = {
     stats: {
         display: 'flex',
         alignItems: 'center',
-        flexWrap: 'wrap',
+        // flexWrap: 'wrap',
         gap: '16px'
     },
     statItem: {
