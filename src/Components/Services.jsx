@@ -1,7 +1,18 @@
-import React from "react"
+import React, { useState, useEffect } from 'react';
 import { Bug, Rat, Moon, Microscope, Droplets, Sparkles, Building, Brush, Shield } from 'lucide-react';
 
 function Services() {
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const serviceItems = [
       {
         id: 1,
@@ -53,21 +64,84 @@ function Services() {
       },
     ]
   
+    const responsiveStyles = {
+        container: {
+            ...styles.container,
+            padding: isMobile ? '0 15px' : '100px 20px',
+            maxWidth: isMobile ? '100%' : '1400px',
+            paddingTop: '150px'
+        },
+        headerSection: {
+            ...styles.headerSection,
+            marginBottom: isMobile ? '40px' : '80px',
+        },
+        title: {
+            ...styles.title,
+            fontSize: isMobile ? '32px' : '48px',
+            textAlign: 'center',
+        },
+        description: {
+            ...styles.description,
+            fontSize: isMobile ? '16px' : '20px',
+            padding: isMobile ? '0 10px' : '0',
+        },
+        servicesGrid: {
+            ...styles.servicesGrid,
+            gridTemplateColumns: isMobile 
+                ? '1fr' 
+                : 'repeat(auto-fill, minmax(350px, 1fr))',
+            gap: isMobile ? '20px' : '40px',
+        },
+        pricingSection: {
+            ...styles.pricingSection,
+            padding: isMobile ? '40px 10px' : '80px 40px',
+        },
+        pricingGrid: {
+            ...styles.pricingGrid,
+            gridTemplateColumns: isMobile 
+                ? '1fr' 
+                : 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: isMobile ? '20px' : '30px',
+        },
+        ctaSection: {
+            ...styles.ctaSection,
+            padding: isMobile ? '40px 10px' : '80px 40px',
+        },
+        ctaTitle: {
+            ...styles.ctaTitle,
+            fontSize: isMobile ? '28px' : '36px',
+            textAlign: 'center',
+        },
+        ctaDescription: {
+            ...styles.ctaDescription,
+            fontSize: isMobile ? '16px' : '18px',
+            textAlign: 'center',
+        },
+        ctaButtons: {
+            ...styles.ctaButtons,
+            flexDirection: isMobile ? 'column' : 'row',
+            alignItems: 'center',
+            gap: isMobile ? '10px' : '20px',
+        }
+    };
+
     return (
-      <div style={styles.container}>
+      <div style={responsiveStyles.container}>
         <div style={styles.backgroundDecoration}></div>
   
         <div style={styles.headerSection}>
           <div style={styles.animatedBox}>
             <span style={styles.tagline}>Professional Services</span>
           </div>
-          <h1 style={styles.title}>Complete Pest Control & Cleaning Solutions</h1>
-          <p style={styles.description}>
+          <h1 style={responsiveStyles.title}>
+            Complete Pest Control & Cleaning Solutions
+          </h1>
+          <p style={responsiveStyles.description}>
             Discover our comprehensive range of pest elimination and cleaning services designed to keep your environment safe and spotless
           </p>
         </div>
   
-        <div style={styles.servicesGrid}>
+        <div style={responsiveStyles.servicesGrid}>
           {serviceItems.map((item, index) => (
             <div
               key={item.id}
@@ -113,7 +187,7 @@ function Services() {
               <div style={styles.pricingCard}>
                 <div style={styles.pricingCardInner}>
                   <h3 style={styles.pricingTitle}>One-Time Service</h3>
-                  <div style={styles.pricingAmount}>$149</div>
+                  <div style={styles.pricingAmount}>R3149</div>
                   <p style={styles.pricingPeriod}>single visit</p>
                   <ul style={styles.pricingFeatures}>
                     <li>
@@ -141,7 +215,7 @@ function Services() {
                 <div style={styles.popularTag}>Most Popular</div>
                 <div style={styles.pricingCardInner}>
                   <h3 style={styles.pricingTitle}>Quarterly Program</h3>
-                  <div style={styles.pricingAmount}>$99</div>
+                  <div style={styles.pricingAmount}>R1899</div>
                   <p style={styles.pricingPeriod}>per month</p>
                   <ul style={styles.pricingFeatures}>
                     <li>
@@ -165,14 +239,14 @@ function Services() {
                       <span>Free Emergency Visits</span>
                     </li>
                   </ul>
-                  <button style={styles.popularPricingButton}>Get Started</button>
+                  <button style={styles.popularPricingButton}>Book Now</button>
                 </div>
               </div>
   
               <div style={styles.pricingCard}>
                 <div style={styles.pricingCardInner}>
                   <h3 style={styles.pricingTitle}>Complete Package</h3>
-                  <div style={styles.pricingAmount}>$249</div>
+                  <div style={styles.pricingAmount}>R4557</div>
                   <p style={styles.pricingPeriod}>per month</p>
                   <ul style={styles.pricingFeatures}>
                     <li>
@@ -200,21 +274,21 @@ function Services() {
                       <span>Termite Monitoring Included</span>
                     </li>
                   </ul>
-                  <button style={styles.pricingButton}>Get Started</button>
+                  <button style={styles.pricingButton}>Book Now</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
   
-        <div style={styles.ctaSection}>
+        <div style={responsiveStyles.ctaSection}>
           <div style={styles.ctaGlow}></div>
           <div style={styles.ctaContent}>
-            <h2 style={styles.ctaTitle}>Ready for a Pest-Free, Clean Environment?</h2>
-            <p style={styles.ctaDescription}>
+            <h2 style={responsiveStyles.ctaTitle}>Ready for a Pest-Free, Clean Environment?</h2>
+            <p style={responsiveStyles.ctaDescription}>
               Contact us today and discover why we're the trusted choice for residential and commercial properties
             </p>
-            <div style={styles.ctaButtons}>
+            <div style={responsiveStyles.ctaButtons}>
               <button style={styles.ctaPrimaryButton}>Schedule Service</button>
               <button style={styles.ctaSecondaryButton}>Get a Quote</button>
             </div>
@@ -234,6 +308,7 @@ function Services() {
         position: "relative",
         overflow: "hidden",
         paddingTop: "150px", 
+        paddingBottom: "50px", 
       },
       backgroundDecoration: {
         position: "absolute",
@@ -299,7 +374,6 @@ function Services() {
         boxShadow: "0 10px 40px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.05)",
         display: "flex",
         flexDirection: "column",
-        height: "100%",
         border: "1px solid rgba(226, 232, 240, 0.8)",
         borderTop: "5px solid rgba(0, 0, 0, 0.3)",
         position: "relative",
@@ -355,7 +429,7 @@ function Services() {
         fontWeight: "bold",
         fontSize: "16px",
       },
-      
+
       learnMoreButton: {
         // color: "#3b82f6",
         marginBottom: "30px",
@@ -382,8 +456,8 @@ function Services() {
     pricingSection: {
       background: "linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)",
       borderRadius: "40px",
-      padding: "80px 40px",
-      marginBottom: "100px",
+      padding: "0",
+      marginBottom: "60px",
       position: "relative",
       overflow: "hidden",
       boxShadow: "0 20px 80px rgba(0, 0, 0, 0.03)",

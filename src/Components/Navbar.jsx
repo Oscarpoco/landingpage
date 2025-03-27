@@ -285,7 +285,7 @@ const styles = {
     left: 0,
     width: '70%',
     height: '100vh',
-    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+    backgroundColor: 'rgba(255, 255, 255, 1)',
     transition: 'all 0.3s ease',
     clipPath: 'circle(0px at calc(100% - 32px) 32px)',
     visibility: 'hidden',
