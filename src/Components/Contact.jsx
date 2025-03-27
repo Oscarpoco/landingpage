@@ -22,7 +22,6 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // In a real application, you would handle form submission here
     setFormSubmitted(true)
     setTimeout(() => {
       setFormSubmitted(false)

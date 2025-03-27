@@ -47,20 +47,23 @@ function Navbar({ setActiveSection, activeSection }) {
     }}>
       <div style={styles.navbarContainer}>
         <div style={styles.logoContainer}>
-          {/* SVG Leaf Logo - Green top, Blue bottom */}
+          {/* Enhanced SVG Leaf Logo with Rotation */}
           <svg 
             width="40" 
             height="40" 
             viewBox="0 0 40 40" 
-            style={styles.logoSvg}
+            style={{
+              ...styles.logoSvg,
+              transform: 'rotate(270deg)' // Added rotation
+            }}
           >
             <path
               d="M20 2C14 2 6 7 6 18C6 25 12 33 20 38C28 33 34 25 34 18C34 7 26 2 20 2Z"
-              fill="#3b82f6" // Blue bottom
+              fill="#10b981" // Green on top
             />
             <path
               d="M20 2C14 2 6 7 6 18C6 25 12 33 20 38L20 20L34 18C34 7 26 2 20 2Z"
-              fill="#10b981" // Green top
+              fill="#3b82f6" // Blue on bottom
             />
             <path
               d="M20 8C18 12 17 16 17 20C17 24 18 28 20 32C22 28 23 24 23 20C23 16 22 12 20 8Z"
@@ -68,8 +71,11 @@ function Navbar({ setActiveSection, activeSection }) {
               fillOpacity="0.3"
             />
           </svg>
-          <h1 style={styles.logoText}>
-            <span style={styles.logoHighlight}>PEST</span>CARE
+          <h1 style={{
+            ...styles.logoText,
+            ...(isMobile ? styles.mobileLogoText : {}) // Added mobile text style
+          }}>
+            <span style={styles.logoHighlight}>MATHE</span> PROJECTS
           </h1>
         </div>
         
@@ -192,15 +198,23 @@ const styles = {
     gap: '10px'
   },
   logoSvg: {
-    display: 'block',
-    transition: 'transform 0.3s ease'
+    display: 'none',
+    transition: 'transform 0.3s ease',
   },
   logoText: {
     margin: 0,
     fontSize: '24px',
-    fontWeight: '900',
-    letterSpacing: '-0.5px'
+    fontWeight: 700,
+    letterSpacing: '-0.5px',
+    color: '#10b981'
   },
+
+  mobileLogoText: {
+    fontSize: '16px', 
+    fontWeight: '900',
+    color: '#10b981'
+  },
+
   logoHighlight: {
     color: '#3b82f6'
   },
@@ -315,7 +329,8 @@ const styles = {
     width: '100%',
     cursor: 'pointer',
     marginTop: '20px'
-  }
+  },
+  
 };
 
 export default Navbar;

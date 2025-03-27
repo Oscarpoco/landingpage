@@ -355,8 +355,9 @@ function Services() {
         fontWeight: "bold",
         fontSize: "16px",
       },
+      
       learnMoreButton: {
-        color: "#3b82f6",
+        // color: "#3b82f6",
         marginBottom: "30px",
         backgroundColor: "white",
         color: "#333",

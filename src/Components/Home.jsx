@@ -1,57 +1,162 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Sparkles, Bug, ShieldCheck, Info } from 'lucide-react';
 
 function Home() {
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const responsiveStyles = {
+        heroSection: {
+            ...styles.heroSection,
+            flexDirection: isMobile ? 'column' : 'row',
+            padding: isMobile ? '0px' : styles.heroSection.padding,
+        },
+        heroContent: {
+            ...styles.heroContent,
+            width: isMobile ? '90%' : '40%',
+            paddingRight: isMobile ? '0' : '40px',
+            paddingTop: isMobile ? '40px' : '0px',
+            textAlign: isMobile ? 'center' : 'left',
+        },
+        heroImageContainer: {
+            ...styles.heroImageContainer,
+            width: isMobile ? '100%' : '40%',
+            marginTop: isMobile ? '20px' : '0',
+        },
+        buttonGroup: {
+            ...styles.buttonGroup,
+            justifyContent: isMobile ? 'center' : 'flex-start',
+        },
+        stats: {
+            ...styles.stats,
+            flexDirection: isMobile ? 'column' : 'row',
+            alignItems: isMobile ? 'center' : 'center',
+            gap: isMobile ? '20px' : '16px',
+        },
+        divider: {
+            ...styles.divider,
+            display: isMobile ? 'none' : 'block',
+        },
+        featuresGrid: {
+            ...styles.featuresGrid,
+            gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(280px, 1fr))',
+        },
+        ctaContent: {
+            ...styles.ctaContent,
+            flexDirection: isMobile ? 'column' : 'row',
+            textAlign: isMobile ? 'center' : 'left',
+            alignItems: 'center',
+            justifyContent: 'center',
+        },
+        ctaTitle: {
+            ...styles.ctaTitle,
+            textAlign: isMobile ? 'center' : 'left',
+            fontSize: isMobile ? '1.8rem' : '2.25rem',
+        },
+        ctaDescription: {
+            ...styles.ctaDescription,
+            textAlign: isMobile ? 'center' : 'left',
+        },
+    };
+
     return (
         <div style={styles.container}>
-            <div style={styles.heroSection}>
-                <div style={styles.heroContent}>
+            <div style={responsiveStyles.heroSection}>
+                <div style={responsiveStyles.heroContent}>
                     <div style={styles.animatedBox}>
                         <span style={styles.tagline}>Premium Pest Solutions</span>
                     </div>
-                    <h1 style={styles.title}>Pest Control <span style={styles.highlight}>And</span> Cleaning Services</h1>
-                    <p style={styles.description}>
+                    <h1 style={{
+                        ...styles.title,
+                        fontSize: isMobile ? '34px' : '48px',
+                        textAlign: isMobile ? 'left' : 'left'
+                    }}>
+                        Pest Control <span style={styles.highlight}>And</span> Cleaning Services
+                    </h1>
+                    <p style={{
+                        ...styles.description,
+                        textAlign: isMobile ? 'left' : 'left',
+                        fontSize: isMobile ? '16px' : '18px',
+                    }}>
                         Professional pest elimination, thorough sanitization, and comprehensive cleaning services in a safe, effective approach designed for residential and commercial properties.
                     </p>
-                    <div style={styles.buttonGroup}>
-                        <button style={styles.primaryButton}>Schedule Service</button>
-                        <button style={styles.secondaryButton}>View Plans</button>
+                    <div style={responsiveStyles.buttonGroup}>
+                        <button style={{
+                            ...styles.primaryButton,
+                            width: isMobile ? '100%' : 'auto',
+                            marginBottom: isMobile ? '10px' : '0',
+                            padding: isMobile ? '16px' : 'auto',
+                        }}>
+                            Schedule Service
+                        </button>
+                        <button style={{
+                            ...styles.secondaryButton,
+                            width: isMobile ? '100%' : 'auto',
+                            padding: isMobile ? '16px' : 'auto',
+                        }}>
+                            View Plans
+                        </button>
                     </div>
-                    <div style={styles.stats}>
+                    <div style={responsiveStyles.stats}>
                         <div style={styles.statItem}>
-                            <span style={styles.statNumber}>15+</span>
+                            <span style={styles.statNumber}>4+</span>
                             <span style={styles.statLabel}>Years Experience</span>
                         </div>
-                        <div style={styles.divider}></div>
+                        {!isMobile && <div style={responsiveStyles.divider}></div>}
                         <div style={styles.statItem}>
                             <span style={styles.statNumber}>100%</span>
                             <span style={styles.statLabel}>Satisfaction Guarantee</span>
                         </div>
-                        <div style={styles.divider}></div>
+                        {!isMobile && <div style={responsiveStyles.divider}></div>}
                         <div style={styles.statItem}>
                             <span style={styles.statNumber}>24/7</span>
                             <span style={styles.statLabel}>Emergency Service</span>
                         </div>
                     </div>
                 </div>
-                <div style={styles.heroImageContainer}>
+                <div style={responsiveStyles.heroImageContainer}>
                     <div style={styles.heroImage}></div>
-                    <div style={styles.imageBadge}>
+                    <div style={{
+                        ...styles.imageBadge,
+                        position: isMobile ? 'static' : 'absolute',
+                        marginTop: isMobile ? '-30px' : '0',
+                        alignSelf: isMobile ? 'center' : 'auto'
+                    }}>
                         <span style={styles.badgeText}>Pest-Free Living Guaranteed</span>
                     </div>
                 </div>
             </div>
 
-            <div style={styles.featuresSection}>
+            <div style={{
+                ...styles.featuresSection,
+                padding: isMobile ? '20px 3%' : '20px 5%'
+            }}>
                 <div style={styles.featuresSectionHeader}>
-                    <h2 style={styles.sectionTitle}>Why Choose PestPro Solutions?</h2>
-                    <p style={styles.sectionSubtitle}>
+                    <h2 style={{
+                        ...styles.sectionTitle,
+                        fontSize: isMobile ? '1.7rem' : '2.5rem',
+                        textAlign: 'center'
+                    }}>
+                        Why Choose PestPro Solutions?
+                    </h2>
+                    <p style={{
+                        ...styles.sectionSubtitle,
+                        fontSize: isMobile ? '14px' : '1.25rem'
+                    }}>
                         Experience the perfect blend of expertise, safety, and exceptional service
                     </p>
                 </div>
 
-                <div style={styles.featuresGrid}>
-                    <div style={styles.feature}>
+                <div style={responsiveStyles.featuresGrid}>
+                <div style={styles.feature}>
                         <div style={styles.serviceIconWrapper}>
                             <div style={styles.serviceIcon}><Bug size={24} /></div>
                         </div>
@@ -90,16 +195,37 @@ function Home() {
                 </div>
             </div>
 
-            <div style={styles.ctaSection}>
-                <div style={styles.ctaContent}>
-                    <h2 style={styles.ctaTitle}>Ready to enjoy a pest-free, clean environment?</h2>
-                    <p style={styles.ctaDescription}>Join thousands of satisfied customers who've made PestPro Solutions their trusted pest control and cleaning partner.</p>
-                    <button style={styles.ctaButton}>Book Your Service Today</button>
+            <div style={{
+                ...styles.ctaSection,
+                padding: isMobile ? '40px 5%' : '80px 5%',
+                borderRadius: isMobile ? '0px' : '16px',
+            }}>
+                <div style={responsiveStyles.ctaContent}>
+                    <div style={{
+                        width: isMobile ? '100%' : 'auto',
+                        marginBottom: isMobile ? '20px' : '0',
+                        
+                    }}>
+                        <h2 style={responsiveStyles.ctaTitle}>
+                            Ready to enjoy a pest-free, clean environment?
+                        </h2>
+                        <p style={responsiveStyles.ctaDescription}>
+                            Join thousands of satisfied customers who've made The Mathe Projects Solutions their trusted pest control and cleaning partner.
+                        </p>
+                    </div>
+                    <button style={{
+                        ...styles.ctaButton,
+                        width: isMobile ? '100%' : 'auto'
+                    }}>
+                        Book Your Service Today
+                    </button>
                 </div>
             </div>
         </div>
     );
 }
+
+
 
 const styles = {
     container: {
@@ -409,6 +535,7 @@ const styles = {
             transform: 'translateX(4px)',
         },
     }
+
 };
 
 export default Home;
