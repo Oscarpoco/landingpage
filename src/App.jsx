@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -32,6 +33,34 @@ function App() {
       </main>
       <Footer setActiveSection={setActiveSection} />
     </div>
+=======
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Navbar from './Components/Navbar.jsx';
+import Home from './Components/Home.jsx';
+import About from './Components/About.jsx';
+import Services from './Components/Services.jsx';
+import Contact from './Components/Contact.jsx';
+import Footer from './Components/Footer.jsx';
+
+function App() {
+  return (
+    <Router>
+      <div style={styles.app}>
+        <Navbar />
+        <main style={styles.content}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
+>>>>>>> master
   );
 }
 
@@ -43,7 +72,10 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     backgroundColor: '#f8fafc',
+<<<<<<< HEAD
     
+=======
+>>>>>>> master
   },
   content: {
     flex: 1,

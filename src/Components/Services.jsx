@@ -1,7 +1,25 @@
+<<<<<<< HEAD
 import React from "react"
 import { Bug, Rat, Moon, Microscope, Droplets, Sparkles, Building, Brush, Shield } from 'lucide-react';
 
 function Services() {
+=======
+import React, { useState, useEffect } from 'react';
+import { Bug, Rat, Moon, Microscope, Droplets, Sparkles, Building, Brush, Shield } from 'lucide-react';
+
+function Services() {
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+>>>>>>> master
     const serviceItems = [
       {
         id: 1,
@@ -53,21 +71,98 @@ function Services() {
       },
     ]
   
+<<<<<<< HEAD
     return (
       <div style={styles.container}>
+=======
+    const responsiveStyles = {
+        container: {
+            ...styles.container,
+            padding: isMobile ? '0 15px' : '100px 20px',
+            maxWidth: isMobile ? '100%' : '1400px',
+            paddingTop: '150px'
+        },
+        headerSection: {
+            ...styles.headerSection,
+            marginBottom: isMobile ? '40px' : '80px',
+        },
+        title: {
+            ...styles.title,
+            fontSize: isMobile ? '32px' : '48px',
+            textAlign: 'center',
+        },
+        description: {
+            ...styles.description,
+            fontSize: isMobile ? '16px' : '20px',
+            padding: isMobile ? '0 10px' : '0',
+        },
+        servicesGrid: {
+            ...styles.servicesGrid,
+            gridTemplateColumns: isMobile 
+                ? '1fr' 
+                : 'repeat(auto-fill, minmax(350px, 1fr))',
+            gap: isMobile ? '20px' : '40px',
+        },
+        pricingSection: {
+            ...styles.pricingSection,
+            padding: isMobile ? '40px 10px' : '80px 40px',
+        },
+        pricingGrid: {
+            ...styles.pricingGrid,
+            gridTemplateColumns: isMobile 
+                ? '1fr' 
+                : 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: isMobile ? '20px' : '30px',
+        },
+        ctaSection: {
+            ...styles.ctaSection,
+            padding: isMobile ? '40px 10px' : '80px 40px',
+        },
+        ctaTitle: {
+            ...styles.ctaTitle,
+            fontSize: isMobile ? '28px' : '36px',
+            textAlign: 'center',
+        },
+        ctaDescription: {
+            ...styles.ctaDescription,
+            fontSize: isMobile ? '16px' : '18px',
+            textAlign: 'center',
+        },
+        ctaButtons: {
+            ...styles.ctaButtons,
+            flexDirection: isMobile ? 'column' : 'row',
+            alignItems: 'center',
+            gap: isMobile ? '10px' : '20px',
+        }
+    };
+
+    return (
+      <div style={responsiveStyles.container}>
+>>>>>>> master
         <div style={styles.backgroundDecoration}></div>
   
         <div style={styles.headerSection}>
           <div style={styles.animatedBox}>
             <span style={styles.tagline}>Professional Services</span>
           </div>
+<<<<<<< HEAD
           <h1 style={styles.title}>Complete Pest Control & Cleaning Solutions</h1>
           <p style={styles.description}>
+=======
+          <h1 style={responsiveStyles.title}>
+            Complete Pest Control & Cleaning Solutions
+          </h1>
+          <p style={responsiveStyles.description}>
+>>>>>>> master
             Discover our comprehensive range of pest elimination and cleaning services designed to keep your environment safe and spotless
           </p>
         </div>
   
+<<<<<<< HEAD
         <div style={styles.servicesGrid}>
+=======
+        <div style={responsiveStyles.servicesGrid}>
+>>>>>>> master
           {serviceItems.map((item, index) => (
             <div
               key={item.id}
@@ -113,7 +208,11 @@ function Services() {
               <div style={styles.pricingCard}>
                 <div style={styles.pricingCardInner}>
                   <h3 style={styles.pricingTitle}>One-Time Service</h3>
+<<<<<<< HEAD
                   <div style={styles.pricingAmount}>$149</div>
+=======
+                  <div style={styles.pricingAmount}>R3149</div>
+>>>>>>> master
                   <p style={styles.pricingPeriod}>single visit</p>
                   <ul style={styles.pricingFeatures}>
                     <li>
@@ -141,7 +240,11 @@ function Services() {
                 <div style={styles.popularTag}>Most Popular</div>
                 <div style={styles.pricingCardInner}>
                   <h3 style={styles.pricingTitle}>Quarterly Program</h3>
+<<<<<<< HEAD
                   <div style={styles.pricingAmount}>$99</div>
+=======
+                  <div style={styles.pricingAmount}>R1899</div>
+>>>>>>> master
                   <p style={styles.pricingPeriod}>per month</p>
                   <ul style={styles.pricingFeatures}>
                     <li>
@@ -165,14 +268,22 @@ function Services() {
                       <span>Free Emergency Visits</span>
                     </li>
                   </ul>
+<<<<<<< HEAD
                   <button style={styles.popularPricingButton}>Get Started</button>
+=======
+                  <button style={styles.popularPricingButton}>Book Now</button>
+>>>>>>> master
                 </div>
               </div>
   
               <div style={styles.pricingCard}>
                 <div style={styles.pricingCardInner}>
                   <h3 style={styles.pricingTitle}>Complete Package</h3>
+<<<<<<< HEAD
                   <div style={styles.pricingAmount}>$249</div>
+=======
+                  <div style={styles.pricingAmount}>R4557</div>
+>>>>>>> master
                   <p style={styles.pricingPeriod}>per month</p>
                   <ul style={styles.pricingFeatures}>
                     <li>
@@ -200,13 +311,18 @@ function Services() {
                       <span>Termite Monitoring Included</span>
                     </li>
                   </ul>
+<<<<<<< HEAD
                   <button style={styles.pricingButton}>Get Started</button>
+=======
+                  <button style={styles.pricingButton}>Book Now</button>
+>>>>>>> master
                 </div>
               </div>
             </div>
           </div>
         </div>
   
+<<<<<<< HEAD
         <div style={styles.ctaSection}>
           <div style={styles.ctaGlow}></div>
           <div style={styles.ctaContent}>
@@ -215,6 +331,16 @@ function Services() {
               Contact us today and discover why we're the trusted choice for residential and commercial properties
             </p>
             <div style={styles.ctaButtons}>
+=======
+        <div style={responsiveStyles.ctaSection}>
+          <div style={styles.ctaGlow}></div>
+          <div style={styles.ctaContent}>
+            <h2 style={responsiveStyles.ctaTitle}>Ready for a Pest-Free, Clean Environment?</h2>
+            <p style={responsiveStyles.ctaDescription}>
+              Contact us today and discover why we're the trusted choice for residential and commercial properties
+            </p>
+            <div style={responsiveStyles.ctaButtons}>
+>>>>>>> master
               <button style={styles.ctaPrimaryButton}>Schedule Service</button>
               <button style={styles.ctaSecondaryButton}>Get a Quote</button>
             </div>
@@ -234,6 +360,10 @@ function Services() {
         position: "relative",
         overflow: "hidden",
         paddingTop: "150px", 
+<<<<<<< HEAD
+=======
+        paddingBottom: "50px", 
+>>>>>>> master
       },
       backgroundDecoration: {
         position: "absolute",
@@ -299,7 +429,10 @@ function Services() {
         boxShadow: "0 10px 40px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.05)",
         display: "flex",
         flexDirection: "column",
+<<<<<<< HEAD
         height: "100%",
+=======
+>>>>>>> master
         border: "1px solid rgba(226, 232, 240, 0.8)",
         borderTop: "5px solid rgba(0, 0, 0, 0.3)",
         position: "relative",
@@ -355,14 +488,24 @@ function Services() {
         fontWeight: "bold",
         fontSize: "16px",
       },
+<<<<<<< HEAD
       learnMoreButton: {
         color: "#3b82f6",
         border: "none",
+=======
+
+      learnMoreButton: {
+        // color: "#3b82f6",
+>>>>>>> master
         marginBottom: "30px",
         backgroundColor: "white",
         color: "#333",
         textTransform: "uppercase",
+<<<<<<< HEAD
         border: "2px solid #3b82f6",
+=======
+        border: "1px solid #3b82f6",
+>>>>>>> master
         padding: "14px 28px",
         borderRadius: "12px",
         fontSize: "18px",
@@ -371,7 +514,11 @@ function Services() {
         transition: "all 0.3s ease",
         width: "100%",
         ":hover": {
+<<<<<<< HEAD
           backgroundColor: "rgba(59, 130, 246, 0.05)",
+=======
+          backgroundColor: "rgba(59, 130, 246, 0.7)",
+>>>>>>> master
           transform: "translateY(-2px)",
         },
       },
@@ -382,8 +529,13 @@ function Services() {
     pricingSection: {
       background: "linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)",
       borderRadius: "40px",
+<<<<<<< HEAD
       padding: "80px 40px",
       marginBottom: "100px",
+=======
+      padding: "0",
+      marginBottom: "60px",
+>>>>>>> master
       position: "relative",
       overflow: "hidden",
       boxShadow: "0 20px 80px rgba(0, 0, 0, 0.03)",
@@ -603,4 +755,8 @@ function Services() {
   
   export default Services
   
+<<<<<<< HEAD
   
+=======
+  
+>>>>>>> master
