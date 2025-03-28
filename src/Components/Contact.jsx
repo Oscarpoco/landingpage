@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { MapPin, Phone, Mail, Clock, Send, User, AtSign, MessageSquare, FileText, AlignCenter } from "lucide-react"
+import emailjs from '@emailjs/browser';
 
 function Contact() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    emailjs.init(import.meta.env.VITE_PUBLIC_KEY);
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -20,29 +25,60 @@ function Contact() {
     message: "",
   })
 
-  const [formSubmitted, setFormSubmitted] = useState(false)
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
-    })
-  }
+    });
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setFormSubmitted(true)
-    setTimeout(() => {
-      setFormSubmitted(false)
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      })
-    }, 3000)
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setLoading(true);
+
+    try {
+      const result = await emailjs.send(
+        import.meta.env.VITE_SERVICE_KEY,
+        import.meta.env.VITE_TEMPLATE_KEY,
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: import.meta.env.VITE_COMPANY_EMAIL
+        }
+      );
+
+      // If email sent successfully
+      setFormSubmitted(true);
+      setSubmitError(false);
+
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setFormSubmitted(false);
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+        onClose();
+      }, 3000);
+
+    } catch (error) {
+      console.error("Email send failed:", error);
+      setSubmitError(true);
+      setFormSubmitted(false);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const responsiveStyles = {
     container: {
@@ -181,6 +217,12 @@ function Contact() {
         <div style={responsiveStyles.contactForm}>
           <h2 style={styles.subtitle}>Send Us a Message</h2>
 
+          {submitError && (
+            <div style={styles.errorMessage}>
+              <p style={styles.errorText}>Failed to send message. Please try again.</p>
+            </div>
+          )}
+
           {formSubmitted ? (
             <div style={styles.successMessage}>
               <div style={styles.successIcon}>✓</div>
@@ -258,8 +300,8 @@ function Contact() {
               </div>
 
               <button type="submit" style={styles.submitButton}>
-                <span>Send Message</span>
-                <Send size={16} color="white" />
+                <span> {loading ? 'Sending Message' : 'Send Message'}</span>
+                {loading ? null : <Send size={16} color="white" />}
               </button>
             </form>
           )}
@@ -456,7 +498,7 @@ const styles = {
     margin: 0,
     lineHeight: "1.5",
   },
-  
+
   mapContainer: {
     marginTop: "40px",
     width: "100%",
@@ -503,7 +545,7 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center'
   },
-  
+
   form: {
     width: "100%",
   },
@@ -628,6 +670,20 @@ const styles = {
       transform: "translateY(-5px)",
       boxShadow: "0 10px 20px rgba(59, 130, 246, 0.1)",
     },
+  },
+
+  errorMessage: {
+    backgroundColor: '#fee2e2',
+    color: '#991b1b',
+    padding: '15px',
+    borderRadius: '12px',
+    marginBottom: '20px',
+    textAlign: 'center',
+  },
+  errorText: {
+    margin: 0,
+    fontSize: '16px',
+    fontWeight: '500',
   },
 }
 

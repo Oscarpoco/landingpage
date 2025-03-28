@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 import Navbar from './Components/Navbar.jsx';
 import Home from './Components/Home.jsx';
@@ -8,6 +8,18 @@ import Services from './Components/Services.jsx';
 import Contact from './Components/Contact.jsx';
 import Footer from './Components/Footer.jsx';
 import ContactForm from './Components/ContactForm.jsx';
+
+// Create a separate ScrollToTop component
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    // Scroll to top on route change
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  
+  return null;
+}
 
 function App() {
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
@@ -22,6 +34,9 @@ function App() {
 
   return (
     <Router>
+      {/* Add ScrollToTop component */}
+      <ScrollToTop />
+      
       <div style={styles.app}>
         <Navbar openContactForm={openContactForm} />
         <main style={styles.content}>

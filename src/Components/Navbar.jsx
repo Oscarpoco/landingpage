@@ -49,24 +49,26 @@ function Navbar() {
       ...(scrolled ? styles.scrolled : {})
     }}>
       <div style={styles.navbarContainer}>
-        <div style={styles.logoContainer}>
-          <div className='logoPicture' style={styles.logoPictureContainer}>
-            <img 
-              src={logo} 
-              alt="Mathe Projects Logo" 
-              style={{
-                ...styles.logoImage,
-                ...(isMobile ? styles.mobileLogoImage : {})
-              }} 
-            />
+      <Link to="/" style={styles.logoContainerLink}>
+          <div style={styles.logoContainer}>
+            <div className='logoPicture' style={styles.logoPictureContainer}>
+              <img 
+                src={logo} 
+                alt="Mathe Projects Logo" 
+                style={{
+                  ...styles.logoImage,
+                  ...(isMobile ? styles.mobileLogoImage : {})
+                }} 
+              />
+            </div>
+            <h1 style={{
+              ...styles.logoText,
+              ...(isMobile ? styles.mobileLogoText : {})
+            }}>
+              <span style={styles.logoHighlight}>MATHE</span> PROJECTS
+            </h1>
           </div>
-          <h1 style={{
-            ...styles.logoText,
-            ...(isMobile ? styles.mobileLogoText : {})
-          }}>
-            <span style={styles.logoHighlight}>MATHE</span> PROJECTS
-          </h1>
-        </div>
+        </Link>
         
         {/* Mobile Menu Button */}
         {isMobile && (
@@ -175,6 +177,12 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     gap: '10px'
+  },
+  logoContainerLink: {
+    display: 'flex',
+    alignItems: 'center',
+    textDecoration: 'none',
+    cursor: 'pointer'
   },
   logoSvg: {
     display: 'none',
