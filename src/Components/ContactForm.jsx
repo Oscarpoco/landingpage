@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { User, AtSign, FileText, MessageSquare, Send, X, MapPin, Phone, Mail, Clock } from "lucide-react";
+import { User, AtSign, FileText, MessageSquare, Send, MapPin, Phone, Mail, Clock } from "lucide-react";
+import emailjs from '@emailjs/browser';
 
 function ContactForm({ isOpen, onClose }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    emailjs.init("saL18gpNn10a8tw2g");
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -21,6 +26,8 @@ function ContactForm({ isOpen, onClose }) {
   });
 
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,19 +37,47 @@ function ContactForm({ isOpen, onClose }) {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => {
+
+    setLoading(true);
+    
+    try {
+      const result = await emailjs.send(
+        "service_v9t5vxp",  
+        "template_pu4epxp", 
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: "thematheprojects@gmail.com"
+        }
+      );
+
+      // If email sent successfully
+      setFormSubmitted(true);
+      setSubmitError(false);
+
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setFormSubmitted(false);
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+        onClose();
+      }, 3000);
+
+    } catch (error) {
+      console.error("Email send failed:", error);
+      setSubmitError(true);
       setFormSubmitted(false);
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
-      onClose();
-    }, 3000);
+    } finally {
+        setLoading(false);
+    }
   };
 
   const responsiveStyles = {
@@ -147,6 +182,12 @@ function ContactForm({ isOpen, onClose }) {
             Get in touch with us to book your appointment today.
           </p>
 
+          {submitError && (
+            <div style={styles.errorMessage}>
+              <p style={styles.errorText}>Failed to send message. Please try again.</p>
+            </div>
+          )}
+
           {formSubmitted ? (
             <div style={styles.successMessage}>
               <div style={styles.successIcon}>✓</div>
@@ -224,8 +265,8 @@ function ContactForm({ isOpen, onClose }) {
               </div>
 
               <button type="submit" style={styles.submitButton}>
-                <span>Send Message</span>
-                <Send size={16} color="white" />
+                <span> {loading ? 'Sending Message' : 'Send Message'}</span>
+                {loading ? null : <Send size={16} color="white" />}
               </button>
             </form>
           )}
@@ -435,6 +476,20 @@ const styles = {
     color: '#64748b',
     margin: 0,
     lineHeight: '1.5',
+  },
+
+  errorMessage: {
+    backgroundColor: '#fee2e2',
+    color: '#991b1b',
+    padding: '15px',
+    borderRadius: '12px',
+    marginBottom: '20px',
+    textAlign: 'center',
+  },
+  errorText: {
+    margin: 0,
+    fontSize: '16px',
+    fontWeight: '500',
   },
 };
 
