@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import logo from '../assets/logo.png'; // Import for Vite
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -49,29 +50,16 @@ function Navbar() {
     }}>
       <div style={styles.navbarContainer}>
         <div style={styles.logoContainer}>
-          <svg 
-            width="40" 
-            height="40" 
-            viewBox="0 0 40 40" 
-            style={{
-              ...styles.logoSvg,
-              transform: 'rotate(270deg)'
-            }}
-          >
-            <path
-              d="M20 2C14 2 6 7 6 18C6 25 12 33 20 38C28 33 34 25 34 18C34 7 26 2 20 2Z"
-              fill="#10b981"
+          <div className='logoPicture' style={styles.logoPictureContainer}>
+            <img 
+              src={logo} 
+              alt="Mathe Projects Logo" 
+              style={{
+                ...styles.logoImage,
+                ...(isMobile ? styles.mobileLogoImage : {})
+              }} 
             />
-            <path
-              d="M20 2C14 2 6 7 6 18C6 25 12 33 20 38L20 20L34 18C34 7 26 2 20 2Z"
-              fill="#3b82f6"
-            />
-            <path
-              d="M20 8C18 12 17 16 17 20C17 24 18 28 20 32C22 28 23 24 23 20C23 16 22 12 20 8Z"
-              fill="white"
-              fillOpacity="0.3"
-            />
-          </svg>
+          </div>
           <h1 style={{
             ...styles.logoText,
             ...(isMobile ? styles.mobileLogoText : {})
@@ -321,6 +309,21 @@ const styles = {
     width: '100%',
     cursor: 'pointer',
     marginTop: '20px'
+  },
+
+  logoPictureContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  logoImage: {
+    height: '40px',
+    width: 'auto',
+    objectFit: 'contain',
+    transition: 'all 0.3s ease'
+  },
+  mobileLogoImage: {
+    height: '30px'
   },
   
 };
