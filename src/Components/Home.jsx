@@ -218,7 +218,7 @@ function Home({openContactForm}) {
                     <button style={{
                         ...styles.ctaButton,
                         width: isMobile ? '100%' : 'auto'
-                    }}>
+                    }} onClick={openContactForm}>
                         Book Your Service Today
                     </button>
                 </div>

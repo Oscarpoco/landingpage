@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Shield, Sparkles, Clock } from 'lucide-react';
+import talenta from '../assets/talenta.jpg';
+import altone from '../assets/altone.jpg';
+
+
 
 function About() {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -14,14 +18,14 @@ function About() {
     }, []);
 
     const getResponsiveStyle = (baseStyle, mobileOverrides = {}) => {
-        return isMobile 
+        return isMobile
             ? { ...baseStyle, ...mobileOverrides }
             : baseStyle;
     };
 
     return (
-        <div style={getResponsiveStyle(styles.container, { 
-            paddingTop: isMobile ? '140px' : '80px' 
+        <div style={getResponsiveStyle(styles.container, {
+            paddingTop: isMobile ? '140px' : '80px'
         })}>
             <div style={getResponsiveStyle(styles.headerSection, {
                 padding: isMobile ? '0px 3%' : '0px 5%'
@@ -38,7 +42,7 @@ function About() {
                         fontSize: isMobile ? '16px' : '18px',
                         textAlign: isMobile ? 'center' : 'left'
                     })}>
-                        Providing superior pest control and cleaning services since 2010, creating healthier spaces for families and businesses
+                        Providing superior pest control and cleaning services since 2021, creating healthier spaces for families and businesses
                     </p>
                 </div>
             </div>
@@ -56,20 +60,21 @@ function About() {
                         <h2 style={styles.sectionTitle}>Our Story</h2>
                         <div style={styles.underline}></div>
                         <p style={styles.paragraph}>
-                            Founded in 2010, CleanPest Solutions began with a simple goal: to provide effective and environmentally responsible pest control and cleaning services. What started as a small family business with just 2 service vehicles has grown into a trusted provider with a fleet of 20+ fully equipped vans serving the entire metro area.
+                            Founded in 2021, The Mathe Projects began with a simple goal: to provide effective and environmentally responsible pest control and cleaning services. What started as a small family business with limited resources has grown into a trusted provider serving the entire metro area with professionalism and expertise.
                         </p>
                         <p style={styles.paragraph}>
-                            As community needs evolved, so did our services. We've continuously expanded our expertise, upgraded our equipment, and refined our eco-friendly approach to create healthier living and working environments for our customers.
+                            As community needs evolved, so did our services. We've continuously expanded our expertise, upgraded our equipment, and refined our eco-friendly approach to create healthier living and working environments for our customers. Our commitment to innovation and customer satisfaction has allowed us to set new industry standards while maintaining our core values of reliability, integrity, and excellence.
                         </p>
 
                         <h2 style={styles.sectionTitle}>Our Vision</h2>
                         <div style={styles.underline}></div>
                         <p style={styles.paragraph}>
-                            We aim to be the region's most trusted name in integrated pest management and cleaning services. Our goal is to provide solutions that are effective against pests while being safe for families, pets, and the environment. 
+                            We aim to be the region's most trusted name in integrated pest management and cleaning services. Our goal is to provide solutions that are effective against pests while being safe for families, pets, and the environment.
                         </p>
                         <p style={styles.paragraph}>
-                            We envision a future where pest control and cleaning work together harmoniously to create truly healthy spaces. Our comprehensive approach addresses both visible cleanliness and invisible threats like bacteria, allergens, and pests.
+                            We envision a future where pest control and cleaning work together harmoniously to create truly healthy spaces. Our comprehensive approach addresses both visible cleanliness and invisible threats like bacteria, allergens, and pests. Through sustainable practices and ongoing improvements, we strive to make every home and business we serve a safer and healthier place.
                         </p>
+
                     </div>
                     <div style={getResponsiveStyle(styles.storyImage, {
                         flex: isMobile ? '1 1 100%' : '1 1 700px',
@@ -123,16 +128,32 @@ function About() {
                         <div style={getResponsiveStyle(styles.teamMember, {
                             width: isMobile ? '100%' : '350px'
                         })}>
-                            <div style={styles.teamMemberImage}></div>
-                            <h3 style={styles.teamMemberName}>Robert Williams</h3>
-                            <p style={styles.teamMemberRole}>Founder & CEO</p>
+                            <div style={styles.teamMemberImage}>
+                                <img
+                                    src={talenta}
+                                    alt="Mathe Projects Logo"
+                                    style={{
+                                        ...styles.memberImage,
+                                    }}
+                                />
+                            </div>
+                            <h3 style={styles.teamMemberName}>Talenta Chabalala</h3>
+                            <p style={styles.teamMemberRole}>Manager</p>
                         </div>
                         <div style={getResponsiveStyle(styles.teamMember, {
                             width: isMobile ? '100%' : '350px'
                         })}>
-                            <div style={styles.teamMemberImage}></div>
-                            <h3 style={styles.teamMemberName}>Maria Rodriguez</h3>
-                            <p style={styles.teamMemberRole}>Operations Director</p>
+                            <div style={styles.teamMemberImage}>
+                                <img
+                                    src={altone}
+                                    alt="Mathe Projects Logo"
+                                    style={{
+                                        ...styles.memberImage,
+                                    }}
+                                />
+                            </div>
+                            <h3 style={styles.teamMemberName}>Altone Mathe</h3>
+                            <p style={styles.teamMemberRole}>Director</p>
                         </div>
                     </div>
                 </div>
@@ -158,7 +179,7 @@ function About() {
                         <div style={styles.statLabel}>Emergency Service</div>
                     </div>
                     <div style={styles.statCard}>
-                        <div style={styles.statNumber}>15,000+</div>
+                        <div style={styles.statNumber}>1,000+</div>
                         <div style={styles.statLabel}>Happy Clients</div>
                     </div>
                 </div>
@@ -286,14 +307,14 @@ const styles = {
         justifyContent: "center",
         marginBottom: "24px",
         border: "1px solid rgba(56, 189, 248, 0.2)",
-      },
+    },
 
     serviceIcon: {
-    
+
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-      },
+    },
     valueTitle: {
         fontSize: "20px",
         fontWeight: "600",
@@ -338,12 +359,22 @@ const styles = {
     },
     teamMemberImage: {
         width: "100%",
-        height: "280px",
+        height: "400px",
         borderRadius: "12px",
         backgroundSize: "cover",
         backgroundPosition: "center",
         marginBottom: "16px",
         boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+        transition: "transform 0.5s ease",
+    },
+
+    memberImage: {
+        width: "100%",
+        height: "100%",
+        borderRadius: "12px",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        marginBottom: "16px",
         transition: "transform 0.5s ease",
     },
     teamMemberName: {

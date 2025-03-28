@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Bug, Rat, Moon, Microscope, Droplets, Sparkles, Building, Brush, Shield } from 'lucide-react';
 
-function Services() {
+function Services({openContactForm}) {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
     useEffect(() => {
@@ -163,7 +163,7 @@ function Services() {
                   </li>
                 ))}
               </ul>
-              <button style={styles.learnMoreButton}>
+              <button style={styles.learnMoreButton} onClick={openContactForm}>
                 <span>Learn More</span>
                 <span style={styles.buttonArrow}>→</span>
               </button>
@@ -207,7 +207,7 @@ function Services() {
                       <span>Follow-up Report</span>
                     </li>
                   </ul>
-                  <button style={styles.pricingButton}>Book Now</button>
+                  <button style={styles.pricingButton} onClick={openContactForm}>Book Now</button>
                 </div>
               </div>
   
@@ -239,7 +239,7 @@ function Services() {
                       <span>Free Emergency Visits</span>
                     </li>
                   </ul>
-                  <button style={styles.popularPricingButton}>Book Now</button>
+                  <button style={styles.popularPricingButton} onClick={openContactForm}>Book Now</button>
                 </div>
               </div>
   
@@ -274,7 +274,7 @@ function Services() {
                       <span>Termite Monitoring Included</span>
                     </li>
                   </ul>
-                  <button style={styles.pricingButton}>Book Now</button>
+                  <button style={styles.pricingButton} onClick={openContactForm}>Book Now</button>
                 </div>
               </div>
             </div>
@@ -289,8 +289,7 @@ function Services() {
               Contact us today and discover why we're the trusted choice for residential and commercial properties
             </p>
             <div style={responsiveStyles.ctaButtons}>
-              <button style={styles.ctaPrimaryButton}>Schedule Service</button>
-              <button style={styles.ctaSecondaryButton}>Get a Quote</button>
+              <button style={styles.ctaPrimaryButton} onClick={openContactForm}>Schedule Service</button>
             </div>
           </div>
         </div>
