@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './Components/Navbar.jsx';
@@ -7,21 +7,37 @@ import About from './Components/About.jsx';
 import Services from './Components/Services.jsx';
 import Contact from './Components/Contact.jsx';
 import Footer from './Components/Footer.jsx';
+import ContactForm from './Components/ContactForm.jsx';
 
 function App() {
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
+
+  const openContactForm = () => {
+    setIsContactFormOpen(true);
+  };
+
+  const closeContactForm = () => {
+    setIsContactFormOpen(false);
+  };
+
   return (
     <Router>
       <div style={styles.app}>
-        <Navbar />
+        <Navbar openContactForm={openContactForm} />
         <main style={styles.content}>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
+            <Route path="/" element={<Home openContactForm={openContactForm} />} />
+            <Route path="/about" element={<About openContactForm={openContactForm} />} />
+            <Route path="/services" element={<Services openContactForm={openContactForm} />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
-        <Footer />
+        <Footer openContactForm={openContactForm} />
+        
+        <ContactForm 
+          isOpen={isContactFormOpen} 
+          onClose={closeContactForm} 
+        />
       </div>
     </Router>
   );

@@ -146,7 +146,7 @@ function About() {
                     gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(auto-fit, minmax(200px, 1fr))'
                 })}>
                     <div style={styles.statCard}>
-                        <div style={styles.statNumber}>20+</div>
+                        <div style={styles.statNumber}>2+</div>
                         <div style={styles.statLabel}>Service Vehicles</div>
                     </div>
                     <div style={styles.statCard}>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Sparkles, Bug, ShieldCheck, Info } from 'lucide-react';
 
-function Home() {
+function Home({openContactForm}) {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
     useEffect(() => {
@@ -94,7 +94,7 @@ function Home() {
                             width: isMobile ? '100%' : 'auto',
                             marginBottom: isMobile ? '10px' : '0',
                             padding: isMobile ? '16px' : 'auto',
-                        }}>
+                        }} onClick={openContactForm}>
                             Schedule Service
                         </button>
                         <button style={{

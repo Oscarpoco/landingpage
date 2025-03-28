@@ -67,7 +67,7 @@ function Footer() {
               <MapPin size={16} style={styles.icon} /> 4932 Masekwas Street, Olivenhoutbosch, Centurion 0157
             </p>
             <p style={styles.footerText}>
-              <Phone size={16} style={styles.icon} /> (082) 341-4911 
+              <Phone size={16} style={styles.icon} /> (082) 341-4911 || (076) 833-8082
             </p>
             <p style={styles.footerText}>
               <Mail size={16} style={styles.icon} /> matheprojects@gmail.com
