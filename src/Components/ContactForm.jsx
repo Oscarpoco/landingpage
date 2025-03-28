@@ -6,7 +6,7 @@ function ContactForm({ isOpen, onClose }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
-    emailjs.init("saL18gpNn10a8tw2g");
+    emailjs.init(import.meta.env.VITE_PUBLIC_KEY);
   }, []);
 
   useEffect(() => {
@@ -44,14 +44,14 @@ function ContactForm({ isOpen, onClose }) {
     
     try {
       const result = await emailjs.send(
-        "service_v9t5vxp",  
-        "template_pu4epxp", 
+        import.meta.env.VITE_SERVICE_KEY,  
+        import.meta.env.VITE_TEMPLATE_KEY,
         {
           name: formData.name,
           email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          to_email: "thematheprojects@gmail.com"
+          to_email: import.meta.env.VITE_COMPANY_EMAIL
         }
       );
 
