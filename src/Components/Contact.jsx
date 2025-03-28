@@ -206,10 +206,22 @@ function Contact() {
           </div>
 
           <div style={responsiveStyles.mapContainer}>
-            <div style={styles.map}>
-              <div style={styles.mapPin}>
-                <MapPin size={32} color="#3b82f6" />
-              </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.5995360548!2d28.265544!3d-25.860943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e956213e11b0e7f%3A0x4a1cbf4c5d201b21!2s4932%20Masekwas%20St%2C%20Olivenhoutbosch%2C%20Centurion%2C%200157%2C%20South%20Africa!5e0!3m2!1sen!2sus!4v1678393831349!5m2!1sen!2sus"
+              style={{
+                width: '100%',
+                height: '100%',
+                border: '0',
+                position: 'absolute',
+                top: 0,
+                left: 0
+              }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            <div style={styles.mapPin}>
+              <MapPin size={32} color="#3b82f6" />
             </div>
           </div>
         </div>
