@@ -1,39 +1,3 @@
-<<<<<<< HEAD
-import React, { useState } from 'react';
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import About from './components/About';
-import Services from './components/Services';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-
-function App() {
-  const [activeSection, setActiveSection] = useState('home');
-
-  const renderSection = () => {
-    switch(activeSection) {
-      case 'home':
-        return <Home />;
-      case 'about':
-        return <About />;
-      case 'services':
-        return <Services />;
-      case 'contact':
-        return <Contact />;
-      default:
-        return <Home />;
-    }
-  };
-
-  return (
-    <div style={styles.app}>
-      <Navbar setActiveSection={setActiveSection} activeSection={activeSection} />
-      <main style={styles.content}>
-        {renderSection()}
-      </main>
-      <Footer setActiveSection={setActiveSection} />
-    </div>
-=======
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -60,7 +24,6 @@ function App() {
         <Footer />
       </div>
     </Router>
->>>>>>> master
   );
 }
 
@@ -72,10 +35,6 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     backgroundColor: '#f8fafc',
-<<<<<<< HEAD
-    
-=======
->>>>>>> master
   },
   content: {
     flex: 1,

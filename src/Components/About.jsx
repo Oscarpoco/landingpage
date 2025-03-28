@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import { Shield, Sparkles, Clock } from 'lucide-react';
-
-function About() {
-    return (
-        <div style={styles.container}>
-            <div style={styles.headerSection}>
-=======
 import React, { useState, useEffect } from "react";
 import { Shield, Sparkles, Clock } from 'lucide-react';
 
@@ -35,15 +26,10 @@ function About() {
             <div style={getResponsiveStyle(styles.headerSection, {
                 padding: isMobile ? '0px 3%' : '0px 5%'
             })}>
->>>>>>> master
                 <div style={styles.headerContent}>
                     <div style={styles.animatedBox}>
                         <span style={styles.tagline}>Our Mission</span>
                     </div>
-<<<<<<< HEAD
-                    <h1 style={styles.title}>About CleanPest Solutions</h1>
-                    <p style={styles.subtitle}>
-=======
                     <h1 style={getResponsiveStyle(styles.title, {
                         fontSize: isMobile ? '28px' : '32px',
                         textAlign: isMobile ? 'center' : 'left'
@@ -52,17 +38,11 @@ function About() {
                         fontSize: isMobile ? '16px' : '18px',
                         textAlign: isMobile ? 'center' : 'left'
                     })}>
->>>>>>> master
                         Providing superior pest control and cleaning services since 2010, creating healthier spaces for families and businesses
                     </p>
                 </div>
             </div>
 
-<<<<<<< HEAD
-            <div style={styles.contentSection}>
-                <div style={styles.storyContainer}>
-                    <div style={styles.storyContent}>
-=======
             <div style={getResponsiveStyle(styles.contentSection, {
                 padding: isMobile ? '20px 5%' : '80px 5%'
             })}>
@@ -73,7 +53,6 @@ function About() {
                     <div style={getResponsiveStyle(styles.storyContent, {
                         flex: isMobile ? '1 1 100%' : '1 1 700px'
                     })}>
->>>>>>> master
                         <h2 style={styles.sectionTitle}>Our Story</h2>
                         <div style={styles.underline}></div>
                         <p style={styles.paragraph}>
@@ -92,25 +71,17 @@ function About() {
                             We envision a future where pest control and cleaning work together harmoniously to create truly healthy spaces. Our comprehensive approach addresses both visible cleanliness and invisible threats like bacteria, allergens, and pests.
                         </p>
                     </div>
-<<<<<<< HEAD
-                    <div style={styles.storyImage}></div>
-=======
                     <div style={getResponsiveStyle(styles.storyImage, {
                         flex: isMobile ? '1 1 100%' : '1 1 700px',
                         height: isMobile ? '300px' : '500px'
                     })}></div>
->>>>>>> master
                 </div>
 
                 <div style={styles.valuesSection}>
                     <h2 style={styles.valuesSectionTitle}>Our Core Values</h2>
-<<<<<<< HEAD
-                    <div style={styles.valuesGrid}>
-=======
                     <div style={getResponsiveStyle(styles.valuesGrid, {
                         gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(300px, 1fr))'
                     })}>
->>>>>>> master
                         <div style={styles.valueCard}>
                             <div style={styles.serviceIconWrapper}>
                                 <div style={styles.serviceIcon}><Shield size={24} /></div>
@@ -146,53 +117,27 @@ function About() {
                     <p style={styles.teamSectionSubtitle}>
                         Our staff consists of certified pest control specialists and cleaning professionals with years of experience
                     </p>
-<<<<<<< HEAD
-                    <div style={styles.teamGrid}>
-                        <div style={styles.teamMember}>
-=======
                     <div style={getResponsiveStyle(styles.teamGrid, {
                         gap: isMobile ? '20px' : '30px'
                     })}>
                         <div style={getResponsiveStyle(styles.teamMember, {
                             width: isMobile ? '100%' : '350px'
                         })}>
->>>>>>> master
                             <div style={styles.teamMemberImage}></div>
                             <h3 style={styles.teamMemberName}>Robert Williams</h3>
                             <p style={styles.teamMemberRole}>Founder & CEO</p>
                         </div>
-<<<<<<< HEAD
-                        <div style={styles.teamMember}>
-=======
                         <div style={getResponsiveStyle(styles.teamMember, {
                             width: isMobile ? '100%' : '350px'
                         })}>
->>>>>>> master
                             <div style={styles.teamMemberImage}></div>
                             <h3 style={styles.teamMemberName}>Maria Rodriguez</h3>
                             <p style={styles.teamMemberRole}>Operations Director</p>
                         </div>
-<<<<<<< HEAD
-                        {/* <div style={styles.teamMember}>
-                            <div style={styles.teamMemberImage}></div>
-                            <h3 style={styles.teamMemberName}>David Thompson</h3>
-                            <p style={styles.teamMemberRole}>Head Pest Specialist</p>
-                        </div>
-                        <div style={styles.teamMember}>
-                            <div style={styles.teamMemberImage}></div>
-                            <h3 style={styles.teamMemberName}>Lisa Chen</h3>
-                            <p style={styles.teamMemberRole}>Cleaning Services Manager</p>
-                        </div> */}
-=======
->>>>>>> master
                     </div>
                 </div>
             </div>
 
-<<<<<<< HEAD
-            <div style={styles.statsSection}>
-                <div style={styles.statsGrid}>
-=======
             <div style={getResponsiveStyle(styles.statsSection, {
                 padding: isMobile ? '40px 3%' : '60px 5%',
                 borderRadius: isMobile ? '0' : '16px',
@@ -200,7 +145,6 @@ function About() {
                 <div style={getResponsiveStyle(styles.statsGrid, {
                     gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(auto-fit, minmax(200px, 1fr))'
                 })}>
->>>>>>> master
                     <div style={styles.statCard}>
                         <div style={styles.statNumber}>20+</div>
                         <div style={styles.statLabel}>Service Vehicles</div>
@@ -220,16 +164,10 @@ function About() {
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-    )
-}
-
-=======
     );
 }
 
 
->>>>>>> master
 const styles = {
     container: {
         width: "100%",
@@ -260,11 +198,7 @@ const styles = {
         fontSize: "16px",
     },
     title: {
-<<<<<<< HEAD
-        fontSize: "42px",
-=======
         fontSize: "32px",
->>>>>>> master
         fontWeight: "800",
         marginBottom: "16px",
         color: "#0f172a",
@@ -451,10 +385,5 @@ const styles = {
     },
 }
 
-<<<<<<< HEAD
-export default About
-
-=======
 
 export default About;
->>>>>>> master

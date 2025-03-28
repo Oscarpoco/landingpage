@@ -1,30 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import { Sparkles, Bug, ShieldCheck, Info } from 'lucide-react';
-
-function Home() {
-    return (
-        <div style={styles.container}>
-            <div style={styles.heroSection}>
-                <div style={styles.heroContent}>
-                    <div style={styles.animatedBox}>
-                        <span style={styles.tagline}>Premium Pest Solutions</span>
-                    </div>
-                    <h1 style={styles.title}>Pest Control <span style={styles.highlight}>And</span> Cleaning Services</h1>
-                    <p style={styles.description}>
-                        Professional pest elimination, thorough sanitization, and comprehensive cleaning services in a safe, effective approach designed for residential and commercial properties.
-                    </p>
-                    <div style={styles.buttonGroup}>
-                        <button style={styles.primaryButton}>Schedule Service</button>
-                        <button style={styles.secondaryButton}>View Plans</button>
-                    </div>
-                    <div style={styles.stats}>
-                        <div style={styles.statItem}>
-                            <span style={styles.statNumber}>15+</span>
-                            <span style={styles.statLabel}>Years Experience</span>
-                        </div>
-                        <div style={styles.divider}></div>
-=======
 import React, { useState, useEffect } from 'react';
 import { Sparkles, Bug, ShieldCheck, Info } from 'lucide-react';
 
@@ -138,27 +111,17 @@ function Home() {
                             <span style={styles.statLabel}>Years Experience</span>
                         </div>
                         {!isMobile && <div style={responsiveStyles.divider}></div>}
->>>>>>> master
                         <div style={styles.statItem}>
                             <span style={styles.statNumber}>100%</span>
                             <span style={styles.statLabel}>Satisfaction Guarantee</span>
                         </div>
-<<<<<<< HEAD
-                        <div style={styles.divider}></div>
-=======
                         {!isMobile && <div style={responsiveStyles.divider}></div>}
->>>>>>> master
                         <div style={styles.statItem}>
                             <span style={styles.statNumber}>24/7</span>
                             <span style={styles.statLabel}>Emergency Service</span>
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
-                <div style={styles.heroImageContainer}>
-                    <div style={styles.heroImage}></div>
-                    <div style={styles.imageBadge}>
-=======
                 <div style={responsiveStyles.heroImageContainer}>
                     <div style={{...styles.heroImage,  borderRadius: isMobile ? '0px' : '16px',}}></div>
                     <div style={{
@@ -169,18 +132,11 @@ function Home() {
                         alignSelf: isMobile ? 'center' : 'auto',
                         textAlign: isMobile ? 'center' : 'left',
                     }}>
->>>>>>> master
                         <span style={styles.badgeText}>Pest-Free Living Guaranteed</span>
                     </div>
                 </div>
             </div>
 
-<<<<<<< HEAD
-            <div style={styles.featuresSection}>
-                <div style={styles.featuresSectionHeader}>
-                    <h2 style={styles.sectionTitle}>Why Choose PestPro Solutions?</h2>
-                    <p style={styles.sectionSubtitle}>
-=======
             <div style={{
                 ...styles.featuresSection,
                 padding: isMobile ? '20px 3%' : '20px 5%'
@@ -197,18 +153,12 @@ function Home() {
                         ...styles.sectionSubtitle,
                         fontSize: isMobile ? '14px' : '1.25rem'
                     }}>
->>>>>>> master
                         Experience the perfect blend of expertise, safety, and exceptional service
                     </p>
                 </div>
 
-<<<<<<< HEAD
-                <div style={styles.featuresGrid}>
-                    <div style={styles.feature}>
-=======
                 <div style={responsiveStyles.featuresGrid}>
                 <div style={styles.feature}>
->>>>>>> master
                         <div style={styles.serviceIconWrapper}>
                             <div style={styles.serviceIcon}><Bug size={24} /></div>
                         </div>
@@ -247,13 +197,6 @@ function Home() {
                 </div>
             </div>
 
-<<<<<<< HEAD
-            <div style={styles.ctaSection}>
-                <div style={styles.ctaContent}>
-                    <h2 style={styles.ctaTitle}>Ready to enjoy a pest-free, clean environment?</h2>
-                    <p style={styles.ctaDescription}>Join thousands of satisfied customers who've made PestPro Solutions their trusted pest control and cleaning partner.</p>
-                    <button style={styles.ctaButton}>Book Your Service Today</button>
-=======
             <div style={{
                 ...styles.ctaSection,
                 padding: isMobile ? '40px 5%' : '80px 5%',
@@ -278,18 +221,14 @@ function Home() {
                     }}>
                         Book Your Service Today
                     </button>
->>>>>>> master
                 </div>
             </div>
         </div>
     );
 }
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> master
 const styles = {
     container: {
         width: '100%',
@@ -373,11 +312,7 @@ const styles = {
     stats: {
         display: 'flex',
         alignItems: 'center',
-<<<<<<< HEAD
-        flexWrap: 'wrap',
-=======
         // flexWrap: 'wrap',
->>>>>>> master
         gap: '16px'
     },
     statItem: {
@@ -602,13 +537,7 @@ const styles = {
             transform: 'translateX(4px)',
         },
     }
-<<<<<<< HEAD
-};
-
-export default Home;
-=======
 
 };
 
 export default Home;
->>>>>>> master

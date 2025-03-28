@@ -1,10 +1,4 @@
 import React, { useState, useEffect } from 'react';
-<<<<<<< HEAD
-
-function Navbar({ setActiveSection, activeSection }) {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-=======
 import { Link, useLocation } from 'react-router-dom';
 
 function Navbar() {
@@ -12,7 +6,6 @@ function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
   const location = useLocation();
->>>>>>> master
   
   useEffect(() => {
     const handleScroll = () => {
@@ -23,17 +16,6 @@ function Navbar() {
       }
     };
     
-<<<<<<< HEAD
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'services', label: 'Services' },
-    { id: 'contact', label: 'Contact' }
-=======
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
@@ -54,7 +36,6 @@ function Navbar() {
     { path: '/about', label: 'About' },
     { path: '/services', label: 'Services' },
     { path: '/contact', label: 'Contact' }
->>>>>>> master
   ];
 
   const toggleMobileMenu = () => {
@@ -68,10 +49,6 @@ function Navbar() {
     }}>
       <div style={styles.navbarContainer}>
         <div style={styles.logoContainer}>
-<<<<<<< HEAD
-          <h1 style={styles.logoText}>
-            <span style={styles.logoHighlight}>PEST</span>CARE
-=======
           <svg 
             width="40" 
             height="40" 
@@ -100,88 +77,10 @@ function Navbar() {
             ...(isMobile ? styles.mobileLogoText : {})
           }}>
             <span style={styles.logoHighlight}>MATHE</span> PROJECTS
->>>>>>> master
           </h1>
         </div>
         
         {/* Mobile Menu Button */}
-<<<<<<< HEAD
-        <div style={styles.mobileMenuBtn} onClick={toggleMobileMenu}>
-          <div style={styles.hamburger}>
-            <span style={{...styles.hamburgerLine, ...(mobileMenuOpen ? styles.hamburgerTopActive : {})}}></span>
-            <span style={{...styles.hamburgerLine, ...(mobileMenuOpen ? styles.hamburgerMiddleActive : {})}}></span>
-            <span style={{...styles.hamburgerLine, ...(mobileMenuOpen ? styles.hamburgerBottomActive : {})}}></span>
-          </div>
-        </div>
-
-        {/* Desktop Navigation */}
-        <ul style={styles.desktopNav}>
-          {navItems.map(item => (
-            <li key={item.id} style={styles.navItem}>
-              <a
-                href={`#${item.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setActiveSection(item.id);
-                }}
-                style={{
-                  ...styles.navLink,
-                  ...(activeSection === item.id ? styles.activeLink : {})
-                }}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-          <li style={styles.navItem}>
-            <button
-              onClick={() => setActiveSection('contact')}
-              style={styles.contactBtn}
-            >
-              Book Now
-            </button>
-          </li>
-        </ul>
-      </div>
-
-      {/* Mobile Navigation */}
-      <div style={{
-        ...styles.mobileNav,
-        ...(mobileMenuOpen ? styles.mobileNavOpen : {})
-      }}>
-        <ul style={styles.mobileNavList}>
-          {navItems.map(item => (
-            <li key={item.id} style={styles.mobileNavItem}>
-              <a
-                href={`#${item.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setActiveSection(item.id);
-                  setMobileMenuOpen(false);
-                }}
-                style={{
-                  ...styles.mobileNavLink,
-                  ...(activeSection === item.id ? styles.mobileActiveLink : {})
-                }}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-          <li style={styles.mobileNavItem}>
-            <button
-              onClick={() => {
-                setActiveSection('contact');
-                setMobileMenuOpen(false);
-              }}
-              style={styles.mobileCta}
-            >
-              Book Now
-            </button>
-          </li>
-        </ul>
-      </div>
-=======
         {isMobile && (
           <div style={styles.mobileMenuBtn} onClick={toggleMobileMenu}>
             <div style={styles.hamburger}>
@@ -253,7 +152,6 @@ function Navbar() {
           </ul>
         </div>
       )}
->>>>>>> master
     </nav>
   );
 }
@@ -266,11 +164,7 @@ const styles = {
     right: 0,
     padding: '0 5%',
     height: '80px',
-<<<<<<< HEAD
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-=======
     backgroundColor: 'rgba(255, 255, 255, 0.95)',
->>>>>>> master
     backdropFilter: 'blur(10px)',
     color: '#1e293b',
     zIndex: 1000,
@@ -291,25 +185,16 @@ const styles = {
   },
   logoContainer: {
     display: 'flex',
-<<<<<<< HEAD
-    alignItems: 'center'
-=======
     alignItems: 'center',
     gap: '10px'
   },
   logoSvg: {
     display: 'none',
     transition: 'transform 0.3s ease',
->>>>>>> master
   },
   logoText: {
     margin: 0,
     fontSize: '24px',
-<<<<<<< HEAD
-    fontWeight: '900',
-    letterSpacing: '-0.5px'
-  },
-=======
     fontWeight: 700,
     letterSpacing: '-0.5px',
     color: '#10b981'
@@ -321,7 +206,6 @@ const styles = {
     color: '#10b981'
   },
 
->>>>>>> master
   logoHighlight: {
     color: '#3b82f6'
   },
@@ -330,14 +214,7 @@ const styles = {
     alignItems: 'center',
     listStyleType: 'none',
     margin: 0,
-<<<<<<< HEAD
-    padding: 0,
-    '@media (max-width: 768px)': {
-      display: 'none'
-    }
-=======
     padding: 0
->>>>>>> master
   },
   navItem: {
     margin: '0 5px'
@@ -367,17 +244,8 @@ const styles = {
     transition: 'all 0.2s ease'
   },
   mobileMenuBtn: {
-<<<<<<< HEAD
-    display: 'none',
-    cursor: 'pointer',
-    zIndex: 1001,
-    '@media (max-width: 768px)': {
-      display: 'block'
-    }
-=======
     cursor: 'pointer',
     zIndex: 1001
->>>>>>> master
   },
   hamburger: {
     width: '24px',
@@ -404,30 +272,18 @@ const styles = {
   },
   mobileNav: {
     position: 'fixed',
-<<<<<<< HEAD
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100vh',
-    backgroundColor: 'white',
-=======
     top: '70px',
     left: 0,
     width: '70%',
     height: '100vh',
     backgroundColor: 'rgba(255, 255, 255, 0.95)',
     backdropFilter: 'blur(10px)',
->>>>>>> master
     transition: 'all 0.3s ease',
     clipPath: 'circle(0px at calc(100% - 32px) 32px)',
     visibility: 'hidden',
     display: 'flex',
     flexDirection: 'column',
-<<<<<<< HEAD
-    justifyContent: 'center',
-=======
     justifyContent: 'start',
->>>>>>> master
     zIndex: 1000
   },
   mobileNavOpen: {
@@ -441,20 +297,12 @@ const styles = {
   },
   mobileNavItem: {
     margin: '20px 0',
-<<<<<<< HEAD
-    textAlign: 'center'
-=======
     textAlign: 'start'
->>>>>>> master
   },
   mobileNavLink: {
     color: '#1e293b',
     textDecoration: 'none',
-<<<<<<< HEAD
-    fontSize: '24px',
-=======
     fontSize: '18px',
->>>>>>> master
     fontWeight: '600',
     padding: '12px',
     display: 'block'
@@ -466,25 +314,15 @@ const styles = {
     backgroundColor: '#3b82f6',
     color: 'white',
     border: 'none',
-<<<<<<< HEAD
-    padding: '16px 28px',
-    borderRadius: '6px',
-    fontSize: '18px',
-=======
     padding: '14px 28px',
     borderRadius: '12px',
     fontSize: '16px',
->>>>>>> master
     fontWeight: '600',
     width: '100%',
     cursor: 'pointer',
     marginTop: '20px'
-<<<<<<< HEAD
-  }
-=======
   },
   
->>>>>>> master
 };
 
 export default Navbar;

@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-
-import { useState } from "react"
-import { MapPin, Phone, Mail, Clock, Send, User, AtSign, MessageSquare, FileText } from "lucide-react"
-
-function Contact() {
-=======
 import React, { useState, useEffect } from 'react'
 import { MapPin, Phone, Mail, Clock, Send, User, AtSign, MessageSquare, FileText, AlignCenter } from "lucide-react"
 
@@ -20,7 +13,6 @@ function Contact() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
->>>>>>> master
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -40,10 +32,6 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-<<<<<<< HEAD
-    // In a real application, you would handle form submission here
-=======
->>>>>>> master
     setFormSubmitted(true)
     setTimeout(() => {
       setFormSubmitted(false)
@@ -56,22 +44,6 @@ function Contact() {
     }, 3000)
   }
 
-<<<<<<< HEAD
-  return (
-    <div style={styles.container}>
-      <div style={styles.backgroundDecoration}></div>
-
-      <div style={styles.headerSection}>
-        <div style={styles.animatedBox}>
-          <span style={styles.tagline}>Get In Touch</span>
-        </div>
-        <h1 style={styles.title}>Contact Us</h1>
-        <p style={styles.description}>Have questions or need assistance? Reach out to us and we'll be happy to help!</p>
-      </div>
-
-      <div style={styles.contactSection}>
-        <div style={styles.contactInfo}>
-=======
   const responsiveStyles = {
     container: {
       ...styles.container,
@@ -154,7 +126,6 @@ function Contact() {
 
       <div style={responsiveStyles.contactSection}>
         <div style={responsiveStyles.contactInfo}>
->>>>>>> master
           <h2 style={styles.subtitle}>Connect With Us</h2>
 
           <div style={styles.infoItem}>
@@ -184,11 +155,7 @@ function Contact() {
             </div>
             <div style={styles.infoContent}>
               <h3 style={styles.infoTitle}>Email</h3>
-<<<<<<< HEAD
-              <p style={styles.infoText}>info@cyberhub.com</p>
-=======
               <p style={styles.infoText}>matheprojects@gmail.com</p>
->>>>>>> master
             </div>
           </div>
 
@@ -202,11 +169,7 @@ function Contact() {
             </div>
           </div>
 
-<<<<<<< HEAD
-          <div style={styles.mapContainer}>
-=======
           <div style={responsiveStyles.mapContainer}>
->>>>>>> master
             <div style={styles.map}>
               <div style={styles.mapPin}>
                 <MapPin size={32} color="#3b82f6" />
@@ -215,11 +178,7 @@ function Contact() {
           </div>
         </div>
 
-<<<<<<< HEAD
-        <div style={styles.contactForm}>
-=======
         <div style={responsiveStyles.contactForm}>
->>>>>>> master
           <h2 style={styles.subtitle}>Send Us a Message</h2>
 
           {formSubmitted ? (
@@ -307,17 +266,10 @@ function Contact() {
         </div>
       </div>
 
-<<<<<<< HEAD
-      <div style={styles.socialSection}>
-        <h2 style={styles.socialTitle}>Connect With Us</h2>
-        <div style={styles.socialIcons}>
-          <a href="#" style={styles.socialIcon}>
-=======
       <div style={responsiveStyles.socialSection}>
         <h2 style={styles.socialTitle}>Connect With Us</h2>
         <div style={responsiveStyles.socialIcons}>
           <a href="#" style={responsiveStyles.socialIcon}>
->>>>>>> master
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z"
@@ -328,11 +280,7 @@ function Contact() {
               />
             </svg>
           </a>
-<<<<<<< HEAD
-          <a href="#" style={styles.socialIcon}>
-=======
           <a href="#" style={responsiveStyles.socialIcon}>
->>>>>>> master
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M23 3.00005C22.0424 3.67552 20.9821 4.19216 19.86 4.53005C19.2577 3.83756 18.4573 3.34674 17.567 3.12397C16.6767 2.90121 15.7395 2.95724 14.8821 3.2845C14.0247 3.61176 13.2884 4.19445 12.773 4.95376C12.2575 5.71308 11.9877 6.61238 12 7.53005V8.53005C10.2426 8.57561 8.50127 8.18586 6.93101 7.39549C5.36074 6.60513 4.01032 5.43868 3 4.00005C3 4.00005 -1 13 8 17C5.94053 18.398 3.48716 19.099 1 19C10 24 21 19 21 7.50005C20.9991 7.2215 20.9723 6.94364 20.92 6.67005C21.9406 5.66354 22.6608 4.39276 23 3.00005Z"
@@ -343,11 +291,7 @@ function Contact() {
               />
             </svg>
           </a>
-<<<<<<< HEAD
-          <a href="#" style={styles.socialIcon}>
-=======
           <a href="#" style={responsiveStyles.socialIcon}>
->>>>>>> master
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z"
@@ -366,11 +310,7 @@ function Contact() {
               />
             </svg>
           </a>
-<<<<<<< HEAD
-          <a href="#" style={styles.socialIcon}>
-=======
           <a href="#" style={responsiveStyles.socialIcon}>
->>>>>>> master
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"
@@ -499,37 +439,24 @@ const styles = {
   },
   infoContent: {
     flex: "1",
-<<<<<<< HEAD
-=======
     gap: '5px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'start'
->>>>>>> master
   },
   infoTitle: {
     fontSize: "18px",
     fontWeight: "600",
-<<<<<<< HEAD
-    marginBottom: "8px",
-=======
     margin: 0,
->>>>>>> master
     color: "#0f172a",
   },
   infoText: {
     fontSize: "16px",
     color: "#64748b",
-<<<<<<< HEAD
-    margin: "0",
-    lineHeight: "1.5",
-  },
-=======
     margin: 0,
     lineHeight: "1.5",
   },
   
->>>>>>> master
   mapContainer: {
     marginTop: "40px",
     width: "100%",
@@ -570,12 +497,6 @@ const styles = {
     maxWidth: "600px",
     backgroundColor: "white",
     borderRadius: "24px",
-<<<<<<< HEAD
-    padding: "40px",
-    // boxShadow: "0 10px 40px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.05)",
-    border: "1px solid rgba(226, 232, 240, 0.5)",
-  },
-=======
     padding: "20px 0",
     border: "1px solid rgba(226, 232, 240, 0.5)",
     display: 'flex',
@@ -583,18 +504,14 @@ const styles = {
     alignItems: 'center'
   },
   
->>>>>>> master
   form: {
     width: "100%",
   },
   formGroup: {
     marginBottom: "24px",
-<<<<<<< HEAD
-=======
     display: 'flex',
     flexDirection: 'column',
     padding: "15px",
->>>>>>> master
   },
   label: {
     display: "flex",
@@ -606,10 +523,6 @@ const styles = {
     color: "#0f172a",
   },
   input: {
-<<<<<<< HEAD
-    width: "100%",
-=======
->>>>>>> master
     padding: "14px 16px",
     borderRadius: "12px",
     border: "1px solid #e2e8f0",
@@ -622,10 +535,6 @@ const styles = {
     },
   },
   textarea: {
-<<<<<<< HEAD
-    width: "100%",
-=======
->>>>>>> master
     padding: "14px 16px",
     borderRadius: "12px",
     border: "1px solid #e2e8f0",
@@ -644,11 +553,8 @@ const styles = {
     color: "white",
     border: "none",
     padding: "14px 24px",
-<<<<<<< HEAD
-=======
     marginLeft: "16px",
     marginBottom: "14px",
->>>>>>> master
     borderRadius: "12px",
     fontSize: "16px",
     fontWeight: "600",
@@ -697,11 +603,7 @@ const styles = {
     marginBottom: "40px",
   },
   socialTitle: {
-<<<<<<< HEAD
-    fontSize: "24px",
-=======
     fontSize: "20px",
->>>>>>> master
     fontWeight: "700",
     color: "#0f172a",
     marginBottom: "20px",
@@ -730,4 +632,3 @@ const styles = {
 }
 
 export default Contact
-
