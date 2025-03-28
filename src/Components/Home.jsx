@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Sparkles, Bug, ShieldCheck, Info } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-function Home({openContactForm}) {
+function Home({ openContactForm }) {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
     useEffect(() => {
@@ -97,13 +98,16 @@ function Home({openContactForm}) {
                         }} onClick={openContactForm}>
                             Schedule Service
                         </button>
-                        <button style={{
-                            ...styles.secondaryButton,
-                            width: isMobile ? '100%' : 'auto',
-                            padding: isMobile ? '16px' : 'auto',
-                        }}>
+                        <Link
+                            to="/services"
+                            style={{
+                                ...styles.secondaryButton,
+                                width: isMobile ? '100%' : 'auto',
+                                padding: isMobile ? '16px' : '16px',
+                            }}
+                        >
                             View Plans
-                        </button>
+                        </Link>
                     </div>
                     <div style={responsiveStyles.stats}>
                         <div style={styles.statItem}>
@@ -123,7 +127,7 @@ function Home({openContactForm}) {
                     </div>
                 </div>
                 <div style={responsiveStyles.heroImageContainer}>
-                    <div style={{...styles.heroImage,  borderRadius: isMobile ? '0px' : '16px',}}></div>
+                    <div style={{ ...styles.heroImage, borderRadius: isMobile ? '0px' : '16px', }}></div>
                     <div style={{
                         ...styles.imageBadge,
                         position: isMobile ? 'static' : 'absolute',
@@ -158,7 +162,7 @@ function Home({openContactForm}) {
                 </div>
 
                 <div style={responsiveStyles.featuresGrid}>
-                <div style={styles.feature}>
+                    <div style={styles.feature}>
                         <div style={styles.serviceIconWrapper}>
                             <div style={styles.serviceIcon}><Bug size={24} /></div>
                         </div>
@@ -206,7 +210,7 @@ function Home({openContactForm}) {
                     <div style={{
                         width: isMobile ? '100%' : 'auto',
                         marginBottom: isMobile ? '20px' : '0',
-                        
+
                     }}>
                         <h2 style={responsiveStyles.ctaTitle}>
                             Ready to enjoy a pest-free, clean environment?
