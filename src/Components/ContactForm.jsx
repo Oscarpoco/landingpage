@@ -153,7 +153,7 @@ function ContactForm({ isOpen, onClose }) {
               </div>
               <div style={styles.infoContent}>
                 <h3 style={styles.infoSubtitle}>Email</h3>
-                <p style={styles.infoText}>matheprojects@gmail.com</p>
+                <p style={styles.infoText}>thematheprojects@gmail.com</p>
               </div>
             </div>
 

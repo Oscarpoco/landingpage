@@ -70,7 +70,7 @@ function Footer() {
               <Phone size={16} style={styles.icon} /> (082) 341-4911 || (076) 833-8082
             </p>
             <p style={styles.footerText}>
-              <Mail size={16} style={styles.icon} /> matheprojects@gmail.com
+              <Mail size={16} style={styles.icon} /> thematheprojects@gmail.com
             </p>
           </div>
         </div>
