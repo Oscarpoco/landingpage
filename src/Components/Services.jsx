@@ -69,7 +69,7 @@ function Services({openContactForm}) {
             ...styles.container,
             padding: isMobile ? '0 15px' : '100px 20px',
             maxWidth: isMobile ? '100%' : '1400px',
-            paddingTop: '150px'
+            paddingTop: '120px'
         },
         headerSection: {
             ...styles.headerSection,
@@ -187,7 +187,7 @@ function Services({openContactForm}) {
               <div style={styles.pricingCard}>
                 <div style={styles.pricingCardInner}>
                   <h3 style={styles.pricingTitle}>One-Time Service</h3>
-                  <div style={styles.pricingAmount}>R3149</div>
+                  <div style={styles.pricingAmount}> <span style={styles.fromText}>From</span> R3149</div>
                   <p style={styles.pricingPeriod}>single visit</p>
                   <ul style={styles.pricingFeatures}>
                     <li>
@@ -215,7 +215,7 @@ function Services({openContactForm}) {
                 <div style={styles.popularTag}>Most Popular</div>
                 <div style={styles.pricingCardInner}>
                   <h3 style={styles.pricingTitle}>Quarterly Program</h3>
-                  <div style={styles.pricingAmount}>R1899</div>
+                  <div style={styles.pricingAmount}> <span style={styles.fromText}>From</span> R1899</div>
                   <p style={styles.pricingPeriod}>per month</p>
                   <ul style={styles.pricingFeatures}>
                     <li>
@@ -246,7 +246,7 @@ function Services({openContactForm}) {
               <div style={styles.pricingCard}>
                 <div style={styles.pricingCardInner}>
                   <h3 style={styles.pricingTitle}>Complete Package</h3>
-                  <div style={styles.pricingAmount}>R4557</div>
+                  <div style={styles.pricingAmount}> <span style={styles.fromText}>From</span> R4557</div>
                   <p style={styles.pricingPeriod}>per month</p>
                   <ul style={styles.pricingFeatures}>
                     <li>
@@ -465,6 +465,10 @@ function Services({openContactForm}) {
       position: "relative",
       zIndex: "1",
     },
+    fromText: {
+      fontSize: "16px",
+      textAlign: "center",
+    },
     pricingHeader: {
       textAlign: "center",
       marginBottom: "60px",
@@ -547,6 +551,11 @@ function Services({openContactForm}) {
       WebkitTextFillColor: "transparent",
       lineHeight: "1",
       marginBottom: "8px",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      gap: "10px",
+      textAlign: "left"
     },
     pricingPeriod: {
       color: "#64748b",

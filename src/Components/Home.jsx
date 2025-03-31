@@ -93,7 +93,7 @@ function Home({ openContactForm }) {
                         <button style={{
                             ...styles.primaryButton,
                             width: isMobile ? '100%' : 'auto',
-                            marginBottom: isMobile ? '10px' : '0',
+                            marginBottom: isMobile ? '0px' : '0',
                             padding: isMobile ? '16px' : 'auto',
                         }} onClick={openContactForm}>
                             Schedule Service
@@ -151,7 +151,7 @@ function Home({ openContactForm }) {
                         fontSize: isMobile ? '1.7rem' : '2.5rem',
                         textAlign: 'center'
                     }}>
-                        Why Choose PestPro Solutions?
+                        Why Choose The Mathe Projects Solutions?
                     </h2>
                     <p style={{
                         ...styles.sectionSubtitle,

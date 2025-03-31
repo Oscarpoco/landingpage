@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { User, AtSign, FileText, MessageSquare, Send, MapPin, Phone, Mail, Clock } from "lucide-react";
+
+// ICONS
+import { User, AtSign, FileText, MessageSquare, Send, MapPin, Phone, Mail, Clock, X } from "lucide-react";
+import { IoMdClose } from "react-icons/io";
+// ENDS
 import emailjs from '@emailjs/browser';
 
 function ContactForm({ isOpen, onClose }) {
@@ -174,7 +178,17 @@ function ContactForm({ isOpen, onClose }) {
             onClick={onClose} 
             style={styles.closeButton}
           >
-            <p style={styles.closeText}>X</p>
+            <span style={{ 
+              color: 'red', 
+              fontSize: '34px', 
+              width: '100%', 
+              height: '100%', 
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              }}>
+                ×
+              </span>
           </button>
 
           <h2 style={responsiveStyles.title}>Book Now</h2>
@@ -303,7 +317,6 @@ const styles = {
     position: 'absolute',
     top: '25px',
     right: '30px',
-    background: 'none',
     border: 'none',
     cursor: 'pointer',
     backgroundColor: 'rgba(100, 116, 139, 0.0)',
@@ -314,12 +327,6 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     transition: 'background-color 0.3s ease',
-  },
-
-  closeText: {
-    fontSize: '28px',
-    color: '#ff0000',
-    fontWeight: 900
   },
 
   popupContent: {

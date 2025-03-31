@@ -25,7 +25,7 @@ function About() {
 
     return (
         <div style={getResponsiveStyle(styles.container, {
-            paddingTop: isMobile ? '140px' : '80px'
+            paddingTop: isMobile ? '40px' : '80px'
         })}>
             <div style={getResponsiveStyle(styles.headerSection, {
                 padding: isMobile ? '0px 3%' : '0px 5%'
@@ -37,7 +37,7 @@ function About() {
                     <h1 style={getResponsiveStyle(styles.title, {
                         fontSize: isMobile ? '28px' : '32px',
                         textAlign: isMobile ? 'center' : 'left'
-                    })}>About CleanPest Solutions</h1>
+                    })}>About The Mathe Projects</h1>
                     <p style={getResponsiveStyle(styles.subtitle, {
                         fontSize: isMobile ? '16px' : '18px',
                         textAlign: isMobile ? 'center' : 'left'
