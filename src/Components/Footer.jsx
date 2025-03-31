@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Info, Phone, Mail, Clock, MapPin, Facebook, Twitter, Instagram, Youtube, Shield } from 'lucide-react';
+import { Home, Info, Phone, Mail, Clock, MapPin, Facebook, Twitter, Instagram, Shield } from 'lucide-react';
 
 function Footer() {
   const navItems = [
@@ -85,7 +85,6 @@ function Footer() {
             {icon: Facebook, link: "https://facebook.com"},
             {icon: Twitter, link: "https://twitter.com"},
             {icon: Instagram, link: "https://instagram.com"},
-            {icon: Youtube, link: "https://youtube.com"}
           ].map(({icon: Icon, link}, index) => (
             <a 
               key={index} 
