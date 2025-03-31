@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Bug, Rat, Moon, Microscope, Droplets, Sparkles, Building, Brush, Shield } from 'lucide-react';
+import { Bug, Rat, Moon, Microscope, Sparkles, Building, Brush, Shield } from 'lucide-react';
 
 function Services({openContactForm}) {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -468,6 +468,8 @@ function Services({openContactForm}) {
     fromText: {
       fontSize: "16px",
       textAlign: "center",
+      padding: 0,
+      margin: 0
     },
     pricingHeader: {
       textAlign: "center",
@@ -552,7 +554,6 @@ function Services({openContactForm}) {
       lineHeight: "1",
       marginBottom: "8px",
       display: "flex",
-      justifyContent: "center",
       alignItems: "center",
       gap: "10px",
       textAlign: "left"
