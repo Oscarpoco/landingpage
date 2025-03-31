@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Sparkles, Bug, ShieldCheck, Info } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 function Home({ openContactForm }) {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -26,6 +27,7 @@ function Home({ openContactForm }) {
             paddingRight: isMobile ? '0' : '40px',
             paddingTop: isMobile ? '40px' : '0px',
             textAlign: isMobile ? 'center' : 'left',
+            // background: 'red'
         },
         heroImageContainer: {
             ...styles.heroImageContainer,
@@ -68,170 +70,379 @@ function Home({ openContactForm }) {
         },
     };
 
+    // Animation variants
+    const fadeInUp = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { 
+            opacity: 1, 
+            y: 0,
+            transition: { duration: 0.6 }
+        }
+    };
+
+    const staggerContainer = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2
+            }
+        }
+    };
+
+    const featureAnimation = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { 
+            opacity: 1, 
+            y: 0,
+            transition: { 
+                duration: 0.5,
+                ease: "easeOut"
+            }
+        },
+        hover: { 
+            y: -10,
+            boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)",
+            transition: { duration: 0.3 }
+        }
+    };
+
+    const buttonAnimation = {
+        hover: { scale: 1.05, transition: { duration: 0.2 } },
+        tap: { scale: 0.95 }
+    };
+
     return (
         <div style={styles.container}>
-            <div style={responsiveStyles.heroSection}>
-                <div style={responsiveStyles.heroContent}>
-                    <div style={styles.animatedBox}>
+            <motion.div 
+                style={responsiveStyles.heroSection}
+                initial="hidden"
+                animate="visible"
+                variants={staggerContainer}
+            >
+                <motion.div 
+                    style={responsiveStyles.heroContent}
+                    variants={fadeInUp}
+                >
+                    <motion.div 
+                        style={styles.animatedBox}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                    >
                         <span style={styles.tagline}>Premium Pest Solutions</span>
-                    </div>
-                    <h1 style={{
-                        ...styles.title,
-                        fontSize: isMobile ? '34px' : '48px',
-                        textAlign: isMobile ? 'center' : 'left'
-                    }}>
-                        Pest Control <span style={styles.highlight}>And</span> Cleaning Services
-                    </h1>
-                    <p style={{
-                        ...styles.description,
-                        textAlign: isMobile ? 'center' : 'left',
-                        fontSize: isMobile ? '16px' : '18px',
-                    }}>
-                        Professional pest elimination, thorough sanitization, and comprehensive cleaning services in a safe, effective approach designed for residential and commercial properties.
-                    </p>
-                    <div style={responsiveStyles.buttonGroup}>
-                        <button style={{
-                            ...styles.primaryButton,
-                            width: isMobile ? '100%' : 'auto',
-                            marginBottom: isMobile ? '0px' : '0',
-                            padding: isMobile ? '16px' : 'auto',
-                        }} onClick={openContactForm}>
-                            Schedule Service
-                        </button>
-                        <Link
-                            to="/services"
-                            style={{
-                                ...styles.secondaryButton,
-                                width: isMobile ? '100%' : 'auto',
-                                padding: isMobile ? '16px' : '16px',
+                    </motion.div>
+                    <motion.h1 
+                        style={{
+                            ...styles.title,
+                            fontSize: isMobile ? '34px' : '48px',
+                            textAlign: isMobile ? 'center' : 'left'
+                        }}
+                        variants={fadeInUp}
+                    >
+                        Pest Control <motion.span 
+                            style={styles.highlight}
+                            animate={{ 
+                                color: ["#3b82f6", "#38bdf8", "#3b82f6"],
                             }}
+                            transition={{ 
+                                duration: 3, 
+                                repeat: Infinity,
+                                repeatType: "reverse" 
+                            }}
+                        >And</motion.span> Cleaning Services
+                    </motion.h1>
+                    <motion.p 
+                        style={{
+                            ...styles.description,
+                            textAlign: isMobile ? 'center' : 'left',
+                            fontSize: isMobile ? '16px' : '18px',
+                        }}
+                        variants={fadeInUp}
+                    >
+                        Professional pest elimination, thorough sanitization, and comprehensive cleaning services in a safe, effective approach designed for residential and commercial properties.
+                    </motion.p>
+                    <motion.div 
+                        style={responsiveStyles.buttonGroup}
+                        variants={fadeInUp}
+                    >
+                        <motion.button 
+                            style={{
+                                ...styles.primaryButton,
+                                width: isMobile ? '100%' : 'auto',
+                                marginBottom: isMobile ? '0px' : '0',
+                                padding: isMobile ? '16px' : 'auto',
+                            }} 
+                            onClick={openContactForm}
+                            variants={buttonAnimation}
+                            whileHover="hover"
+                            whileTap="tap"
                         >
-                            View Plans
-                        </Link>
-                    </div>
-                    <div style={responsiveStyles.stats}>
-                        <div style={styles.statItem}>
-                            <span style={styles.statNumber}>4+</span>
+                            Schedule Service
+                        </motion.button>
+                        <motion.div
+                            variants={buttonAnimation}
+                            whileHover="hover"
+                            whileTap="tap"
+                            style={{ width: isMobile ? '100%' : 'auto' }}
+                        >
+                            <Link
+                                to="/services"
+                                style={{
+                                    ...styles.secondaryButton,
+                                    maxWidth: isMobile ? '290px' : '100%',
+                                    width: '100%',
+                                    display: 'inline-block',
+                                    padding: isMobile ? '16px' : '16px',
+                                    textAlign: 'center',
+                                }}
+                            >
+                                View Plans
+                            </Link>
+                        </motion.div>
+                    </motion.div>
+                    <motion.div 
+                        style={responsiveStyles.stats}
+                        variants={fadeInUp}
+                    >
+                        <motion.div 
+                            style={styles.statItem}
+                            whileHover={{ scale: 1.05 }}
+                        >
+                            <motion.span 
+                                style={styles.statNumber}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.5, delay: 0.6 }}
+                            >4+</motion.span>
                             <span style={styles.statLabel}>Years Experience</span>
-                        </div>
+                        </motion.div>
                         {!isMobile && <div style={responsiveStyles.divider}></div>}
-                        <div style={styles.statItem}>
-                            <span style={styles.statNumber}>100%</span>
+                        <motion.div 
+                            style={styles.statItem}
+                            whileHover={{ scale: 1.05 }}
+                        >
+                            <motion.span 
+                                style={styles.statNumber}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.5, delay: 0.8 }}
+                            >100%</motion.span>
                             <span style={styles.statLabel}>Satisfaction Guarantee</span>
-                        </div>
+                        </motion.div>
                         {!isMobile && <div style={responsiveStyles.divider}></div>}
-                        <div style={styles.statItem}>
-                            <span style={styles.statNumber}>24/7</span>
+                        <motion.div 
+                            style={styles.statItem}
+                            whileHover={{ scale: 1.05 }}
+                        >
+                            <motion.span 
+                                style={styles.statNumber}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.5, delay: 1 }}
+                            >24/7</motion.span>
                             <span style={styles.statLabel}>Emergency Service</span>
-                        </div>
-                    </div>
-                </div>
-                <div style={responsiveStyles.heroImageContainer}>
-                    <div style={{ ...styles.heroImage, borderRadius: isMobile ? '0px' : '16px', }}></div>
-                    <div style={{
-                        ...styles.imageBadge,
-                        position: isMobile ? 'static' : 'absolute',
-                        marginTop: isMobile ? '-30px' : '0',
-                        borderRadius: isMobile ? '0px' : '16px',
-                        alignSelf: isMobile ? 'center' : 'auto',
-                        textAlign: isMobile ? 'center' : 'left',
-                    }}>
+                        </motion.div>
+                    </motion.div>
+                </motion.div>
+                <motion.div 
+                    style={responsiveStyles.heroImageContainer}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.7, delay: 0.3 }}
+                >
+                    <motion.div 
+                        style={{ ...styles.heroImage, borderRadius: isMobile ? '0px' : '16px' }}
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ duration: 0.5 }}
+                    ></motion.div>
+                    <motion.div 
+                        style={{
+                            ...styles.imageBadge,
+                            position: isMobile ? 'static' : 'absolute',
+                            marginTop: isMobile ? '-30px' : '0',
+                            borderRadius: isMobile ? '0px' : '16px',
+                            alignSelf: isMobile ? 'center' : 'auto',
+                            textAlign: isMobile ? 'center' : 'left',
+                        }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 1.2 }}
+                    >
                         <span style={styles.badgeText}>Pest-Free Living Guaranteed</span>
-                    </div>
-                </div>
-            </div>
+                    </motion.div>
+                </motion.div>
+            </motion.div>
 
-            <div style={{
-                ...styles.featuresSection,
-                padding: isMobile ? '20px 3%' : '20px 5%'
-            }}>
-                <div style={styles.featuresSectionHeader}>
-                    <h2 style={{
-                        ...styles.sectionTitle,
-                        fontSize: isMobile ? '1.7rem' : '2.5rem',
-                        textAlign: 'center'
-                    }}>
+            <motion.div 
+                style={{
+                    ...styles.featuresSection,
+                    padding: isMobile ? '20px 3%' : '20px 5%'
+                }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.7 }}
+            >
+                <motion.div 
+                    style={styles.featuresSectionHeader}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <motion.h2 
+                        style={{
+                            ...styles.sectionTitle,
+                            fontSize: isMobile ? '1.7rem' : '2.5rem',
+                            textAlign: 'center'
+                        }}
+                    >
                         Why Choose The Mathe Projects Solutions?
-                    </h2>
-                    <p style={{
-                        ...styles.sectionSubtitle,
-                        fontSize: isMobile ? '14px' : '1.25rem'
-                    }}>
+                    </motion.h2>
+                    <motion.p 
+                        style={{
+                            ...styles.sectionSubtitle,
+                            fontSize: isMobile ? '14px' : '1.25rem'
+                        }}
+                    >
                         Experience the perfect blend of expertise, safety, and exceptional service
-                    </p>
-                </div>
+                    </motion.p>
+                </motion.div>
 
-                <div style={responsiveStyles.featuresGrid}>
-                    <div style={styles.feature}>
-                        <div style={styles.serviceIconWrapper}>
+                <motion.div 
+                    style={responsiveStyles.featuresGrid}
+                    variants={staggerContainer}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.1 }}
+                >
+                    <motion.div 
+                        style={styles.feature}
+                        variants={featureAnimation}
+                        whileHover="hover"
+                    >
+                        <motion.div 
+                            style={styles.serviceIconWrapper}
+                            whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+                            transition={{ duration: 0.5 }}
+                        >
                             <div style={styles.serviceIcon}><Bug size={24} /></div>
-                        </div>
+                        </motion.div>
                         <h3 style={styles.featureTitle}>Complete Pest Elimination</h3>
                         <p style={styles.featureDescription}>
                             Cutting-edge treatments and techniques to eliminate all types of pests from your property
                         </p>
-                    </div>
-                    <div style={styles.feature}>
-                        <div style={styles.serviceIconWrapper}>
+                    </motion.div>
+                    <motion.div 
+                        style={styles.feature}
+                        variants={featureAnimation}
+                        whileHover="hover"
+                    >
+                        <motion.div 
+                            style={styles.serviceIconWrapper}
+                            whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+                            transition={{ duration: 0.5 }}
+                        >
                             <div style={styles.serviceIcon}><Sparkles size={24} /></div>
-                        </div>
+                        </motion.div>
                         <h3 style={styles.featureTitle}>Deep Cleaning Services</h3>
                         <p style={styles.featureDescription}>
                             Thorough cleaning and sanitization for homes and businesses with eco-friendly products
                         </p>
-                    </div>
-                    <div style={styles.feature}>
-                        <div style={styles.serviceIconWrapper}>
+                    </motion.div>
+                    <motion.div 
+                        style={styles.feature}
+                        variants={featureAnimation}
+                        whileHover="hover"
+                    >
+                        <motion.div 
+                            style={styles.serviceIconWrapper}
+                            whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+                            transition={{ duration: 0.5 }}
+                        >
                             <div style={styles.serviceIcon}><ShieldCheck size={24} /></div>
-                        </div>
+                        </motion.div>
                         <h3 style={styles.featureTitle}>Preventative Protection</h3>
                         <p style={styles.featureDescription}>
                             Ongoing maintenance plans to ensure long-term protection against future infestations
                         </p>
-                    </div>
-                    <div style={styles.feature}>
-                        <div style={styles.serviceIconWrapper}>
+                    </motion.div>
+                    <motion.div 
+                        style={styles.feature}
+                        variants={featureAnimation}
+                        whileHover="hover"
+                    >
+                        <motion.div 
+                            style={styles.serviceIconWrapper}
+                            whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+                            transition={{ duration: 0.5 }}
+                        >
                             <div style={styles.serviceIcon}><Info size={24} /></div>
-                        </div>
+                        </motion.div>
                         <h3 style={styles.featureTitle}>Certified Technicians</h3>
                         <p style={styles.featureDescription}>
                             Professionally trained and licensed specialists with years of industry experience
                         </p>
-                    </div>
-                </div>
-            </div>
+                    </motion.div>
+                </motion.div>
+            </motion.div>
 
-            <div style={{
-                ...styles.ctaSection,
-                padding: isMobile ? '40px 5%' : '80px 5%',
-                borderRadius: isMobile ? '0px' : '16px',
-            }}>
-                <div style={responsiveStyles.ctaContent}>
-                    <div style={{
-                        width: isMobile ? '100%' : 'auto',
-                        marginBottom: isMobile ? '20px' : '0',
-
-                    }}>
-                        <h2 style={responsiveStyles.ctaTitle}>
+            <motion.div 
+                style={{
+                    ...styles.ctaSection,
+                    padding: isMobile ? '40px 5%' : '80px 5%',
+                    borderRadius: isMobile ? '0px' : '16px',
+                }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.7 }}
+            >
+                <motion.div 
+                    style={responsiveStyles.ctaContent}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={staggerContainer}
+                >
+                    <motion.div 
+                        style={{
+                            width: isMobile ? '100%' : 'auto',
+                            marginBottom: isMobile ? '20px' : '0',
+                        }}
+                        variants={fadeInUp}
+                    >
+                        <motion.h2 
+                            style={responsiveStyles.ctaTitle}
+                            variants={fadeInUp}
+                        >
                             Ready to enjoy a pest-free, clean environment?
-                        </h2>
-                        <p style={responsiveStyles.ctaDescription}>
+                        </motion.h2>
+                        <motion.p 
+                            style={responsiveStyles.ctaDescription}
+                            variants={fadeInUp}
+                        >
                             Join thousands of satisfied customers who've made The Mathe Projects Solutions their trusted pest control and cleaning partner.
-                        </p>
-                    </div>
-                    <button style={{
-                        ...styles.ctaButton,
-                        width: isMobile ? '100%' : 'auto'
-                    }} onClick={openContactForm}>
+                        </motion.p>
+                    </motion.div>
+                    <motion.button 
+                        style={{
+                            ...styles.ctaButton,
+                            width: isMobile ? '100%' : 'auto'
+                        }} 
+                        onClick={openContactForm}
+                        variants={buttonAnimation}
+                        whileHover="hover"
+                        whileTap="tap"
+                    >
                         Book Your Service Today
-                    </button>
-                </div>
-            </div>
+                    </motion.button>
+                </motion.div>
+            </motion.div>
         </div>
     );
 }
-
-
 
 const styles = {
     container: {
@@ -413,7 +624,6 @@ const styles = {
     },
 
     serviceIcon: {
-
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -427,10 +637,6 @@ const styles = {
         borderRadius: '12px',
         boxShadow: '0 10px 25px rgba(0, 0, 0, 0.03)',
         transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-        ':hover': {
-            transform: 'translateY(-5px)',
-            boxShadow: '0 15px 30px rgba(0, 0, 0, 0.05)',
-        },
     },
 
     featureIconContainer: {
@@ -484,10 +690,6 @@ const styles = {
         maxWidth: '1200px',
         margin: '0 auto',
         padding: '0 20px',
-        '@media (max-width: 768px)': {
-            flexDirection: 'column',
-            textAlign: 'center',
-        },
     },
 
     ctaTextContent: {
@@ -524,10 +726,6 @@ const styles = {
         cursor: 'pointer',
         transition: 'transform 0.3s ease, box-shadow 0.3s ease',
         boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-        ':hover': {
-            transform: 'translateY(-2px)',
-            boxShadow: '0 15px 20px -3px rgba(0, 0, 0, 0.15)',
-        },
     },
 
     ctaButtonText: {
@@ -537,11 +735,7 @@ const styles = {
     ctaButtonIcon: {
         fontSize: '1.2rem',
         transition: 'transform 0.3s ease',
-        ':hover': {
-            transform: 'translateX(4px)',
-        },
     }
-
 };
 
 export default Home;
